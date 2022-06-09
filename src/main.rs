@@ -600,10 +600,13 @@ pub mod test{
 
     #[test]
     fn test_32(){
-        // 逃逸闭包: 能被函数返回，不在函数调用过程中被销毁的闭包
+        // 逃逸闭包: 能被函数返回，不在函数调用过程中被销毁的闭包。
+
+        // FnMut 用作逃逸闭包
         fn c_mut() -> impl FnMut(i32)->[i32;3]{ // 闭包是这个类型说明，闭包要修改环境变量
             // arr 是一个局部变量，它会随着函数的调用完毕而被消亡(drop)
-            // 只有通过 move 关键字将 arr 的所有权转移到闭包内，再通过闭包将 arr 带出函数
+            // arr 中的所有元素都是基本数据类型，都实现了Copy trait，因此 arr 也就实现了 Copy trait
+            // move 只是将 arr 的一个副本移动到了闭包内，闭包则将 arr这个副本带出当前函数
             let mut arr = [0,1,2];
             move |i|{arr[0] = i;arr}
         }
@@ -612,5 +615,39 @@ pub mod test{
         println!("{:?}",arr_closure(i));
         let mut result = arr_closure(i);
         println!("{:?}",result);
+
+        // FnMut 不能用作逃逸闭包
+        // fn c_mut2()-> impl for<'a> FnMut(&'a str)->String{
+        //     // s 是动态可增长的字符串，它的值存储在堆上
+        //     // 随着函数调用完毕，s 指向的 存储在堆上的值会被 drop,同时 s 也会被 drop
+        //     // 但是此时 s 的指针又被 move 进了闭包，并被闭包带出了函数，此时 s就成了悬垂指针
+        //     // 这 move 是可有可无的，s 没有实现 Copy，即使不使用 move，闭包捕获这个 s 也会自动转移 s 的所有权
+        //
+        //     let mut s = "hello".to_string();
+        //     move |i|{s += i;s}
+        // }
+        // let i = "world";
+        // let mut arr_closure = c_mut2(); // Error
     }
+
+    #[test]
+    fn test_33(){
+        // 即使不使用闭包，也无法返回一个局部变量的引用，主要是为了防止出现悬垂指针。
+
+        // 唯一不可变引用
+        let mut a = [1,2,3];
+        let x = &mut a;
+        {
+            // 结论: rustc 不允许你去使用被闭包捕获的引用(借用)
+            let mut c = ||{(*x)[0] = 0;};
+            //let y = &x; //Error
+            c();
+        }
+        let z = &x; //OK
+    }
+
+    // 闭包实现Copy Clone 的两条规则
+    // 如果环境变量实现了Copy，闭包如果以可变借用方式捕获环境变量，并对其进行修改，则闭包自身不会实现Copy
+    // ( 如果闭包对环境变量产生影响，这个闭包自身就不能实现Copy
+    // 如果这个闭包能实现Copy，相当于多个闭包来对环境变量进行修改，这违反Rust可变借用的规则
 }
