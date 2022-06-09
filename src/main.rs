@@ -46,7 +46,7 @@ pub mod test{
     use std::ptr::addr_of;
     use std::string::ParseError;
     use std::sync::{Arc, Mutex};
-    use std::{fmt, mem, thread};
+    use std::{fmt, mem, thread, time};
     use std::fmt::{Display, Formatter};
     use std::mem::swap;
     use std::thread::park;
@@ -650,4 +650,20 @@ pub mod test{
     // 如果环境变量实现了Copy，闭包如果以可变借用方式捕获环境变量，并对其进行修改，则闭包自身不会实现Copy
     // ( 如果闭包对环境变量产生影响，这个闭包自身就不能实现Copy
     // 如果这个闭包能实现Copy，相当于多个闭包来对环境变量进行修改，这违反Rust可变借用的规则
+
+    #[test]
+    fn test_34(){  // 本地线程的使用
+        let h1 = thread::spawn(||{
+            println!("Delay par 1s");
+            thread::sleep(time::Duration::from_millis(1))
+        });
+
+        let h2 = thread::spawn(||{
+            println!("Delay per 1.5s");
+            thread::sleep(time::Duration::from_millis(1));
+        });
+        h1.join(); // h1 加入线程池，因此可以被调度执行
+        h2.join(); // h2 加入线程池，因此可以被调度执行
+    }
 }
+
