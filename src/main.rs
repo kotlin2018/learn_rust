@@ -47,7 +47,9 @@ pub mod test{
     use std::string::ParseError;
     use std::sync::{Arc, Mutex};
     use std::{fmt, mem, thread, time};
+    use std::error::Error;
     use std::fmt::{Display, Formatter};
+    use std::fs::OpenOptions;
     use std::mem::swap;
     use std::thread::park;
     use super::*;
@@ -542,15 +544,15 @@ pub mod test{
 
     #[test]
     fn test_28(){
-        let a = 1;
-        let b = a + 1;
+        // let a1 = 1;
+        // let b1 = a1 + 1;
         let add_one_v2 = |x: u32|-> u32{x+1};
         let add_one_v3 = |x|{x + 1};
         let add_one_v4 = |x|x+1;
         let a = add_one_v2(5);
         let b = add_one_v3(5);
         let c = add_one_v4(5);
-        println!("a = {},b = {}, c = {}",a,b,c);
+        println!("a = {:?},b = {:?}, c = {:?}",a,b,c);
     }
 
     #[test]
@@ -589,13 +591,17 @@ pub mod test{
 
     #[test]
     fn test_31(){
-        let a = 1;   // a 是 i32 类型，默认实现了 Copy trait,并且 a 指向的值是存储在栈上，因此 a 绑定的值可以被修改，计算
-        let b = a+1;
-        println!("{}",a);
+        // let a = 1;   // a 是 i32 类型，默认实现了 Copy trait,并且 a 指向的值是存储在栈上，因此 a 绑定的值可以被修改，计算
+        // let b = a+1;
+        // println!("{}",a);
+
+        let c = Box::from(3); // c 指向的变量 3 存储在堆上，存储在堆上的只实现了 Move trait
+        let d = &c; // 这里只是将c的借用给了d，c的所有权还是在c自身
+        println!("{}",c); // Ok
 
         // let c = Box::from(3); // c 指向的变量 3 存储在堆上，存储在堆上的只实现了 Move trait
-        // let d = c;
-        // println!("{}",c); // 这里报错
+        // let d = c; // 这里直接将c自身给了d，c的所有权已经转移到了d，c已经被消耗掉了
+        // println!("{}",c); // Error
     }
 
     #[test]
@@ -628,31 +634,62 @@ pub mod test{
         // }
         // let i = "world";
         // let mut arr_closure = c_mut2(); // Error
+
+        // 即使不使用闭包，也无法返回一个局部变量的引用，主要是为了防止出现悬垂指针。
     }
 
     #[test]
     fn test_33(){
-        // 即使不使用闭包，也无法返回一个局部变量的引用，主要是为了防止出现悬垂指针。
 
-        // 唯一不可变引用
+        // rustc 不允许你去使用被闭包捕获的引用(借用)
+
+        // [唯一不可变引用]: 被闭包捕获的引用
         let mut a = [1,2,3];
         let x = &mut a;
-        {
-            // 结论: rustc 不允许你去使用被闭包捕获的引用(借用)
-            let mut c = ||{(*x)[0] = 0;};
-            //let y = &x; //Error
-            c();
-        }
-        let z = &x; //OK
+
+        // 结论: rustc 不允许你去使用被闭包捕获的引用(借用)
+        // let mut c = ||{(*x)[0] = 0;};
+        // let y = &x; //Error
+        // c();
+        // let z = &x; //OK
     }
 
-    // 闭包实现Copy Clone 的两条规则
-    // 如果环境变量实现了Copy，闭包如果以可变借用方式捕获环境变量，并对其进行修改，则闭包自身不会实现Copy
+    // 闭包实现 Copy/Clone 的两条规则
+    // 1、如果环境变量实现了Copy，闭包如果以可变借用方式捕获环境变量，并对其进行修改，则闭包自身不会实现Copy
     // ( 如果闭包对环境变量产生影响，这个闭包自身就不能实现Copy
     // 如果这个闭包能实现Copy，相当于多个闭包来对环境变量进行修改，这违反Rust可变借用的规则
 
+    // 2、如果环境变量自身是 Move 语义，则闭包内捕获环境变量的操作涉及修改环境或者消耗环境变量，则闭包自身不会实现Copy
+
+    // 实现 Sync/Send 的三条简单规则
+    // 1、如果所有捕获变量均实现了Sync，则闭包实现Sync
+    // 2、如果环境变量都不是 [唯一不可变引用] 方式捕获的，并且都实现了 Sync，则闭包实现Send
+    // 3、如果环境变量是以 [唯一不可变引用]、[可变引用]、Copy或Move所有权捕获的，那闭包实现Send
+    fn foo<F: Fn() + Copy>(f: F){
+        f()
+    }
+
     #[test]
-    fn test_34(){  // 本地线程的使用
+    fn test_34(){
+        let s = "hello".to_owned();
+        // 当前闭包捕获了环境变量 s，但是并未修改s，因此该闭包实现了 Fn trait，它是 Fn 类型，这种情况下，闭包自身也实现了Copy trait
+        let f = || {
+            println!("{}",s)
+        };
+        foo(f); //Ok
+
+        // let ss = "hello".to_owned();
+        // // move 会强制将 ss 转移到闭包中，相当于闭包消耗掉了环境变量 ss，此时闭包对环境变量产生了影响，因此该闭包不能实现Copy trait
+        // // 如果 闭包实现了 Copy，则它会消耗两次环境变量，这不符合 rust 的规则。
+        // let ff = move ||{
+        //     println!("{}",b);
+        // };
+        // foo(ff);//Error
+    }
+
+
+    #[test]
+    fn test_35(){  // 本地线程的使用
         let h1 = thread::spawn(||{
             println!("Delay par 1s");
             thread::sleep(time::Duration::from_millis(1))
@@ -664,6 +701,115 @@ pub mod test{
         });
         h1.join(); // h1 加入线程池，因此可以被调度执行
         h2.join(); // h2 加入线程池，因此可以被调度执行
+    }
+
+    // 模式匹配
+    struct Point{
+        x: i32,
+        y: i32,
+    }
+
+    #[test]
+    fn test_36(){
+        // let 声明模式匹配
+        let (a,b) = (1,2);
+        assert_eq!(1,a); //Ok
+        assert_eq!(2,b); //Ok
+
+        let Point{x,y} = Point{x: 3,y: 4};
+        assert_eq!(3,x); //Ok
+        assert_eq!(y,4); //Ok
+
+        // 函数与闭包模式匹配
+        fn sum(x: String,ref y: String) -> String{
+            x + y
+        }
+        let s = sum("1".to_string(),"2".to_owned());
+        assert_eq!(s,"12".to_owned()); //Ok
+
+        // ref 模式匹配
+        let a = 42;
+        let ref b = a; // 此时 b 是 &i32 类型，等价于 b = &a  ( ref 把变量 a 的借用匹配给 b)
+        let c = &a;
+        assert_eq!(b,c); //Ok
+
+        let mut a = [1,2,3];
+        let ref mut b = a; // 等价于 b = &a
+        b[0] = 0;
+        assert_eq!(a,[0,2,3]); //Ok
+
+        // match 表达式
+        fn check_optional(opt: Option<i32>){
+            match opt {
+                Some(p) =>println!("has value{}",p),
+                None => println!("has no value"),
+            }
+        }
+        // fn handle_result(res: i32) -> Result<i32,dyn Error>{
+        //     do_something(res)?;
+        //     // 问号操作符等价于
+        //     match do_something(res){
+        //         Ok(o) => Ok(o),
+        //         Err(e) => return SomeError(e),
+        //     }
+        // }
+
+        // 不加语法糖的 match 模式匹配
+        fn f01(x: &Option<String>){
+            match x {
+                &Some(ref s) => {
+                    println!("{:?}",s) // 使用 ref 将 s的引用匹配到 函数体中，因此就不必将 s 所有权转移到函数体 {} 中
+                },
+                &None => {
+                    println!("nothing")
+                }
+            }
+        }
+
+        // 加语法糖的 match 模式匹配
+        fn f02(x: &Option<String>){
+            match x {
+                Some(s) => {println!("{:?}",s)},
+                None => { print!("is null")}
+            }
+        }
+
+        // 普通数组
+        let arr = [1,2,3];
+        match arr {
+            [1,_,_] => println!("starts with one"), // 最先匹配到这个,后续的不再匹配了 (输出: starts with one)
+            [a,b,c] => println!("starts with something else"), // 注释上段代码，则匹配到这个分支
+             _ => println!("nothing") // 注释上段代码，则匹配到这个分支
+        };
+
+        // 动态大小数组
+        let v = vec![1,2,3];
+        match v[..] {
+            [a,b] => {/* 不匹配 */}
+            [a,b,c] => {println!("{},{},{}",a,b,c)}
+            _ => {/* 必须包含这条分支，因为长度是动态的*/}
+        };
+
+        let x = &Some(3);
+        if let Some(y) = x { // 这里编译器自动将 Some(y) 填充为 &Some(y)
+            y; // &i32
+        }
+    }
+
+    /* 智能指针
+    1、值语义(实现Copy trait): 可以存储在栈内存的基本数据类型，在语义层面基本数据类型就是一种值；按值来传递给其他变量、函数，也就是全部数据进行传递。
+
+    2、指针语义(实现Move trait): 在运行时动态增长的类型 (动态数组、动态字符串)；将存储在栈上的指针传递给其他变量、函数，也就是只传递栈上指针。
+
+
+
+
+     */
+
+
+    #[test]
+    fn test_37(){
+        //
     }
 }
 
