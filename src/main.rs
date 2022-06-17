@@ -3,6 +3,10 @@ extern crate core;
 use std::fmt;
 #[allow(unused_imports)]
 use std::fmt::Formatter;
+use std::thread::sleep;
+use std::time;
+use tokio::runtime::Builder;
+
 #[allow(unused)]
 macro_rules! unit {
     ($($x:tt)*) => {
@@ -32,11 +36,34 @@ static sum: fn(i32,i32)->i32 = |i:i32,j:i32|->i32{
     i+j
 };
 
+#[derive(Debug)]
+struct People{
+    name: String,
+    age: u32,
+}
 
+impl Drop for People{
+    fn drop(&mut self) {
+        println!("people is already drop")
+    }
+}
 
+async fn nice(){
+    sleep(time::Duration::from_secs(1))
+}
 fn main() {
-   // sum(1,3);
-   // println!("Hello, world!");
+    let rt = Builder::new_current_thread().enable_all().build().unwrap();
+    rt.block_on(
+        async{
+            tokio::spawn(async{
+                nice().await;
+                println!("YesYes")
+            });
+            println!("HiHi");
+            100
+        }
+    );
+    print!("{}",v)
 }
 
 #[cfg(test)]
@@ -800,16 +827,189 @@ pub mod test{
     1、值语义(实现Copy trait): 可以存储在栈内存的基本数据类型，在语义层面基本数据类型就是一种值；按值来传递给其他变量、函数，也就是全部数据进行传递。
 
     2、指针语义(实现Move trait): 在运行时动态增长的类型 (动态数组、动态字符串)；将存储在栈上的指针传递给其他变量、函数，也就是只传递栈上指针。
-
-
-
-
      */
-
 
     #[test]
     fn test_37(){
+        let x = Box::new(42); // 这里 x 是一个智能指针
+        let y = *x;  // 取 x 这个指针指向的值: 42
+        assert_eq!(y,42);//Ok
+
+        // 自动解引用: 点调用操作
+        struct User{
+            name: &'static str,
+        }
+
+        impl User{
+            fn name(&self){
+                println!("{:?}",self.name)
+            }
+        }
+
+        let u = User{name: "Alex"};
+        let y = Box::new(u);
+        y.name();
+
+        // 自动解引用: 函数参数
+        fn takes_str(s: &str){
+            println!("{:?}",s)
+        }
+
+        let s = String::from("hello world");
+        takes_str(&s); // 因为 String 类型实现了 Deref trait，所以 String 能自动解引用为 &str 类型
+    }
+
+    #[test]
+    fn test_38(){
+        // let x : &Vec<i32>;
+        // {
+        //     let y = Vec::new();
+        //     x = &y;
+        // }
+        // println!("x's length is {}",x.len());
+    }
+
+    // Move 语义 borrow 的使用
+    #[test]
+    fn test_39(){
+        struct Hello {
+            v: i32,
+        }
+        impl Drop for Hello{
+            fn drop(&mut self) {
+                println!("drop borrow1")
+            }
+        }
+        fn consume(h: Hello){
+            println!("{:?}",h.v)
+        }
+        fn print_hello(h: &Hello){
+            println!("{:?}",h.v);
+        }
+        // {
+        //     let h = Hello{v: 300};
+        //     println!("{:?}",h.v);
+        //     consume(h); //Ok h的所有权已经被转移到了 consume 内
+        //     consume(h) //Error 这里再次使用会报错，因为 h 在上个函数就被消耗掉了
+        // }
+
+        {
+            let h = Hello{v: 300};
+            println!("{:?}",h.v);
+            // h 这个主体派生出 N 多个借用(引用),h 被消耗掉，就不能派生借用了
+            print_hello(&h);//Ok 这里只是使用了 h 的一个借用, h 所有权并未转移到 print_hello() 内，h 未被消耗
+            print_hello(&h);//Ok 这里只是使用了 h 的一个借用, h 所有权并未转移到 print_hello() 内，h 未被消耗
+        }
+
+        fn return_str()->String{
+            let mut s = "Rust".to_owned();
+            for i in 0..3{
+                s.push_str("Good");
+            }
+            s
+        }
+        let aa = return_str();
+        println!("{:?}",aa);
+
+        #[test]
+        fn test_40(){
+            // let r ;
+            // {
+            //     let x = 5;
+            //     r = &x; // r 引用了 x 指向的值
+            // } // 在这里 x 被 drop ,同时 x 指向的值也被清理
+            // println!("r: {}",r); // 这里 r 就成了无效引用，指向了一个不存在的内存
+        }
+
+        #[test]
+        fn test_41() {
+            // let r ;
+            // {
+            //     let x = People{
+            //         name: "小明".to_string(),
+            //         age: 18,
+            //     };
+            //     r = &x; // r 引用了 x 指向的值
+            // } // 在这里 x 被 drop ,同时 x 指向的值也被清理
+            // println!("r = {:?}",r); // 所以这里就发生了悬垂指针
+
+            let r ;
+            {
+                let x = People{
+                    name: "小明".to_string(),
+                    age: 18,
+                };
+                r = x; // x 的所有权转移给了 r
+            } // 在这里 x 被 drop 了，但是 r 获得了 x 的所有权，因此 r 又重新指向了 x 指向的那块内存
+            println!("r = {:?}",r);
+        }
+
+        // 什么是Sized?
+        // Sized是Rust再编译阶段检查对象操作的一个基本依据,
+        // Rust只允许操作已知大小的对象, 未知大小的对象只能操作它的指针(&).
+
+        fn sized_correct() {
+            #[derive(Debug)]
+            struct Water<T>(T);            // 等同于 struct Status<T: Sized>(T);
+
+            #[derive(Debug)]
+            struct Cup(Water<i32>);
+
+            let water = Water(10);
+            let cup = Cup(water);
+            println!("{:?}", cup);         // output: Cup(Water(10))
+        }
+
+
+        // 问题代码, 需要注释掉才能运行.
+        //fn sized_error() {
+        //    #[derive(Debug)]
+        //    struct Water<T>(T);            // 等同于 struct Status<T: Sized>(T);
         //
+        //    #[derive(Debug)]
+        //    struct Cup(Water<[i32]>);     // 由于[i32] 是一个队列, 因此它是未知大小
+        //}
+
+        fn use_unsized_to_fix_sized_error() {
+            #[derive(Debug)]
+            #[allow(dead_code)]
+            struct Bar<T: ?Sized>(T);
+
+            #[derive(Debug)]
+            #[allow(dead_code)]
+            struct BarUse<'a>(Bar<&'a [i32]>);
+        }
+
+        fn thinking() {
+            #[derive(Debug)]
+            #[allow(dead_code)]
+            struct Bar<T: ?Sized>(T);
+
+            #[derive(Debug)]
+            #[allow(dead_code)]
+            struct BarUse<'a>(Bar<&'a [i32]>);
+            // 备注: 虽然这里可以定义Bar<[i32]> ,
+            //       但是实际上实现起来不能直接写slice, 因为编译器不允许未知大小的东西编译通过,
+            //       解决办法是改成&[i32]
+
+            let s = [1,2,3,4];
+            let bar = Bar(&s[0..2]);
+            let bu = BarUse(bar);
+            println!("{:?}", bu);
+            // 写成这样能运行的原因是, &s[0..2]是一个引用, 引用就是一个指针, 指针是固定大小的.
+            // 如果指针是固定大小的, 那么上面定义的?Sized对于这个例子来说就没有意义了.
+            // 这个问题我现在的水平还无法解决, 等以后水平不断深入在来解决把, 先留个TODO
+            // TODO: FIXME.
+        }
+
+
+        fn main() {
+            sized_correct();
+            // sized_error();
+            use_unsized_to_fix_sized_error();
+            thinking();
+        }
+
     }
 }
 
