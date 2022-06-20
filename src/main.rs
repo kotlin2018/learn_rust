@@ -51,19 +51,20 @@ impl Drop for People{
 async fn nice(){
     sleep(time::Duration::from_secs(1))
 }
+
 fn main() {
-    let rt = Builder::new_current_thread().enable_all().build().unwrap();
-    rt.block_on(
-        async{
-            tokio::spawn(async{
-                nice().await;
-                println!("YesYes")
-            });
-            println!("HiHi");
-            100
-        }
-    );
-    print!("{}",v)
+    // let rt = Builder::new_current_thread().enable_all().build().unwrap();
+    // rt.block_on(
+    //     async{
+    //         tokio::spawn(async{
+    //             nice().await;
+    //             println!("YesYes")
+    //         });
+    //         println!("HiHi");
+    //         100
+    //     }
+    // );
+    // print!("{}",v)
 }
 
 #[cfg(test)]
@@ -543,13 +544,7 @@ pub mod test{
     //     println!("{}",x);
     // }
 
-    // rust 中函数无法捕获环境变量 (闭包可以)
-    // fn counter(i: i32) -> fn(i32) ->i32{ // fn(i32) ->i32 是一个函数指针，函数可以用一个变量来绑定，因此函数也可以是指针类型
-    //     fn inc(n: i32)-> i32 {
-    //     n + i // 这里 inc 无法捕获 counter()函数的参数 i
-    // }
-    //     inc // 返回这个函数指针
-    // }
+
     #[test]
     fn test_26(){
         // let f = counter(2); // 这段代码编译会报错
@@ -583,28 +578,6 @@ pub mod test{
     }
 
     #[test]
-    fn test_29(){
-        // 未捕获环境
-        let c1 = ||println!("hello");
-        c1();
-
-        // 可修改环境变量
-        let mut arr = [1,2,3];
-        let mut c2 = |i|{
-            arr[0] = i; // arr[0] 这个变量指向 指向(绑定) i 这个值
-            println!("{:?}",arr);
-        };
-        c2(0);
-
-        // 未修改环境变量
-        let anwser = 42;
-        let c3 = ||{
-            println!("{}",anwser)
-        };
-        c3();
-    }
-
-    #[test]
     fn test_30(){
         let mut s = String::from("hello");
         // let ref1 = &s;
@@ -617,101 +590,21 @@ pub mod test{
     }
 
     #[test]
-    fn test_31(){
-        // let a = 1;   // a 是 i32 类型，默认实现了 Copy trait,并且 a 指向的值是存储在栈上，因此 a 绑定的值可以被修改，计算
-        // let b = a+1;
-        // println!("{}",a);
-
-        let c = Box::from(3); // c 指向的变量 3 存储在堆上，存储在堆上的只实现了 Move trait
-        let d = &c; // 这里只是将c的借用给了d，c的所有权还是在c自身
-        println!("{}",c); // Ok
-
-        // let c = Box::from(3); // c 指向的变量 3 存储在堆上，存储在堆上的只实现了 Move trait
-        // let d = c; // 这里直接将c自身给了d，c的所有权已经转移到了d，c已经被消耗掉了
-        // println!("{}",c); // Error
-    }
-
-    #[test]
     fn test_32(){
-        // 逃逸闭包: 能被函数返回，不在函数调用过程中被销毁的闭包。
 
-        // FnMut 用作逃逸闭包
-        fn c_mut() -> impl FnMut(i32)->[i32;3]{ // 闭包是这个类型说明，闭包要修改环境变量
-            // arr 是一个局部变量，它会随着函数的调用完毕而被消亡(drop)
-            // arr 中的所有元素都是基本数据类型，都实现了Copy trait，因此 arr 也就实现了 Copy trait
-            // move 只是将 arr 的一个副本移动到了闭包内，闭包则将 arr这个副本带出当前函数
-            let mut arr = [0,1,2];
-            move |i|{arr[0] = i;arr}
-        }
-        let i = 42;
-        let mut arr_closure = c_mut();
-        println!("{:?}",arr_closure(i));
-        let mut result = arr_closure(i);
-        println!("{:?}",result);
-
-        // FnMut 不能用作逃逸闭包
-        // fn c_mut2()-> impl for<'a> FnMut(&'a str)->String{
-        //     // s 是动态可增长的字符串，它的值存储在堆上
-        //     // 随着函数调用完毕，s 指向的 存储在堆上的值会被 drop,同时 s 也会被 drop
-        //     // 但是此时 s 的指针又被 move 进了闭包，并被闭包带出了函数，此时 s就成了悬垂指针
-        //     // 这 move 是可有可无的，s 没有实现 Copy，即使不使用 move，闭包捕获这个 s 也会自动转移 s 的所有权
-        //
-        //     let mut s = "hello".to_string();
-        //     move |i|{s += i;s}
-        // }
-        // let i = "world";
-        // let mut arr_closure = c_mut2(); // Error
-
-        // 即使不使用闭包，也无法返回一个局部变量的引用，主要是为了防止出现悬垂指针。
     }
 
     #[test]
     fn test_33(){
 
-        // rustc 不允许你去使用被闭包捕获的引用(借用)
-
-        // [唯一不可变引用]: 被闭包捕获的引用
-        let mut a = [1,2,3];
-        let x = &mut a;
-
-        // 结论: rustc 不允许你去使用被闭包捕获的引用(借用)
-        // let mut c = ||{(*x)[0] = 0;};
-        // let y = &x; //Error
-        // c();
-        // let z = &x; //OK
     }
 
-    // 闭包实现 Copy/Clone 的两条规则
-    // 1、如果环境变量实现了Copy，闭包如果以可变借用方式捕获环境变量，并对其进行修改，则闭包自身不会实现Copy
-    // ( 如果闭包对环境变量产生影响，这个闭包自身就不能实现Copy
-    // 如果这个闭包能实现Copy，相当于多个闭包来对环境变量进行修改，这违反Rust可变借用的规则
 
-    // 2、如果环境变量自身是 Move 语义，则闭包内捕获环境变量的操作涉及修改环境或者消耗环境变量，则闭包自身不会实现Copy
 
-    // 实现 Sync/Send 的三条简单规则
-    // 1、如果所有捕获变量均实现了Sync，则闭包实现Sync
-    // 2、如果环境变量都不是 [唯一不可变引用] 方式捕获的，并且都实现了 Sync，则闭包实现Send
-    // 3、如果环境变量是以 [唯一不可变引用]、[可变引用]、Copy或Move所有权捕获的，那闭包实现Send
-    fn foo<F: Fn() + Copy>(f: F){
-        f()
-    }
 
     #[test]
     fn test_34(){
-        let s = "hello".to_owned();
-        // 当前闭包捕获了环境变量 s，但是并未修改s，因此该闭包实现了 Fn trait，它是 Fn 类型，这种情况下，闭包自身也实现了Copy trait
-        let f = || {
-            println!("{}",s)
-        };
-        foo(f); //Ok
 
-        // let ss = "hello".to_owned();
-        // // move 会强制将 ss 转移到闭包中，相当于闭包消耗掉了环境变量 ss，此时闭包对环境变量产生了影响，因此该闭包不能实现Copy trait
-        // // 如果 闭包实现了 Copy，则它会消耗两次环境变量，这不符合 rust 的规则。
-        // let ff = move ||{
-        //     println!("{}",b);
-        // };
-        // foo(ff);//Error
     }
 
 
@@ -1001,13 +894,42 @@ pub mod test{
             // 这个问题我现在的水平还无法解决, 等以后水平不断深入在来解决把, 先留个TODO
             // TODO: FIXME.
         }
+       #[test]
+       fn test_42() {
+           sized_correct();
+           // sized_error();
+           use_unsized_to_fix_sized_error();
+           thinking();
+       }
 
+        // rustc也会对 unsafe 代码块进行借用检查
+        #[test]
+        fn test_43() {
+            unsafe {
+                let mut a = "hello";
+                let b = &a;
+                let c = &mut a;
+            }
+        }
 
-        fn main() {
-            sized_correct();
-            // sized_error();
-            use_unsized_to_fix_sized_error();
-            thinking();
+        // 只能在 unsafe 代码块中修改 static 全局变量
+        static mut COUNTER: u32 = 0;
+        #[test]
+        fn test_44(){
+            let inc = 3;
+            unsafe {
+                COUNTER += inc;
+                assert_eq!(3,COUNTER)
+            }
+        }
+
+        #[test]
+        fn test_45(){
+            // let mut s = "hello".to_string();
+            // let r1 = &s as *const String;
+            // let r2 = &mut s as *mut String;
+            // assert_eq!(r1,r2);
+            println!("=======")
         }
 
     }
