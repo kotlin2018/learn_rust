@@ -34,13 +34,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b93b726c-e34b-4f1a-a70b-03d0d63a620f" name="Default Changelist" comment="Default Changelist">
-      <change afterPath="$PROJECT_DIR$/tests/chapter01.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/learn_rust.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/learn_rust" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/learn_rust" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f.2173ybjivhda9546.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f.2173ybjivhda9546.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f.24gshchh2oghv2ah.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f.24gshchh2oghv2ah.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f.3nqfhbz6nhk2lhux.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f.3nqfhbz6nhk2lhux.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f.3nzzc7nk4n3gwmbl.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f.3nzzc7nk4n3gwmbl.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/12io2cobkejezrbm.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/16c24msyrtvpk4pm.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/1bj7yqyc8ie0vhn5.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/1riyyrtrcc8qtcgu.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/1v1yr81xexj264kr.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/1vofstrwo3y3dflq.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/1x6iczscwq4kjoe.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/207nziuaha6joqzy.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/2173ybjivhda9546.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/24gshchh2oghv2ah.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/2a3s7ualsdfddf8m.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/2des4asuzxirxicp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/2edskyfw6zdea2xb.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/2gyi6whos5qaal3k.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/2i7sxjqcv92lmc6f.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/2p29sib1wqlzm8eq.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/30wijuhfrfakr0vc.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/3aozdaxzis6u8jvr.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/3dejgqcaj8or8lbl.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/3dje3oedbcl9r9ed.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/3nqfhbz6nhk2lhux.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/3nzzc7nk4n3gwmbl.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/3ociin3ev4ch7d51.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/3ox9fs0gqw4g4wfw.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/3wq6za5amuhsfy7k.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/491wr9fcj67nxacw.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/4cttlltgpq8qkmmk.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/4fxiqgpgxgtfp9ey.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/4jmzfwqipppuy9pk.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/4o7e3uoqolt0qchy.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/4r2vdymw0ds436hr.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/4wude3rm32hapq05.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/4wzpmekhi1sjar1a.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/55er6t0hqcssfla4.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/58599czix7prl6k9.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/5as80t8sgr6hsj9t.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/5bsxlv6kxd5h3yq4.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/5ch4g3flh0lf4l7g.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/5epvaf2tmla4g1ji.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/5fd9z1cw000whisq.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/8j8g91ogk6xkg4q.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/8r43xciu3nsy35f.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/dep-graph.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/g8sg1dnmr2bf3gw.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/mxat7ug82hn3a9h.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/query-cache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/qxja9d8tgiu9whu.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/s1q7z1q4xt4iyou.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky-pm9bbf240l08/work-products.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawd9nvmu7-1lr16ky.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/chapter01.rs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/chapter01.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +324,7 @@
       <workItem from="1655536407337" duration="52000" />
       <workItem from="1655598077438" duration="5966000" />
       <workItem from="1655643367600" duration="8884000" />
-      <workItem from="1655692305134" duration="6018000" />
+      <workItem from="1655692305134" duration="7361000" />
     </task>
     <servers />
   </component>

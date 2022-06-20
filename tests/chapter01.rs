@@ -231,9 +231,26 @@ pub mod chapter01{
         bar(x);
     }
 
-    // trait bound 的用法
+    // 生命周期参数: 闭包
     #[test]
     fn test_11(){
+        // let f = |x: &i32| x; // Error
+        // let i = &3;
+        // let j = f(i);
+
+        // 修复上述错误
+        fn annotate<T,F>(f: F) -> F where for<'a>F: Fn(&'a T) -> &'a T {  // 这个 for<'a> 限定说明: 后面那个函数的 入参生命周期必须大于返回值
+            f
+        }
+        let f = annotate(|x|x);
+        let i = &3;
+        let j = f(i); // 入参 i 的生命周期 > 返回值 j 的生命周期 (满足 f 这个闭包的生命周期限定)
+        assert_eq!(*j,3);
+    }
+
+    // trait bound 的用法
+    #[test]
+    fn test_12(){
         struct Person;
         trait Behavior{
             fn sleep(&self){ // trait 的默认实现
