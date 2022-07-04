@@ -34,69 +34,91 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b93b726c-e34b-4f1a-a70b-03d0d63a620f" name="Default Changelist" comment="Default Changelist">
-      <change afterPath="$PROJECT_DIR$/tests/chapter02.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/chapter03.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/salvo_test.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/.rustc_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/.rustc_info.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f.2173ybjivhda9546.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f.2173ybjivhda9546.rcgu.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f.24gshchh2oghv2ah.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter01-dbbd7cd4cc00268f.24gshchh2oghv2ah.rcgu.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/12io2cobkejezrbm.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/16c24msyrtvpk4pm.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/1bj7yqyc8ie0vhn5.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/1riyyrtrcc8qtcgu.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/1v1yr81xexj264kr.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/1vofstrwo3y3dflq.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/1x6iczscwq4kjoe.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/207nziuaha6joqzy.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/2173ybjivhda9546.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/24gshchh2oghv2ah.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/2a3s7ualsdfddf8m.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/2des4asuzxirxicp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/2edskyfw6zdea2xb.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/2gyi6whos5qaal3k.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/2i7sxjqcv92lmc6f.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/2p29sib1wqlzm8eq.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/30wijuhfrfakr0vc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/3aozdaxzis6u8jvr.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/3dejgqcaj8or8lbl.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/3dje3oedbcl9r9ed.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/3nqfhbz6nhk2lhux.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/3nzzc7nk4n3gwmbl.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/3ociin3ev4ch7d51.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/3ox9fs0gqw4g4wfw.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/3wq6za5amuhsfy7k.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/491wr9fcj67nxacw.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/4cttlltgpq8qkmmk.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/4fxiqgpgxgtfp9ey.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/4jmzfwqipppuy9pk.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/4o7e3uoqolt0qchy.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/4r2vdymw0ds436hr.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/4wude3rm32hapq05.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/4wzpmekhi1sjar1a.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/55er6t0hqcssfla4.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/58599czix7prl6k9.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/5as80t8sgr6hsj9t.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/5bsxlv6kxd5h3yq4.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/5ch4g3flh0lf4l7g.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/5epvaf2tmla4g1ji.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/5fd9z1cw000whisq.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/8j8g91ogk6xkg4q.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/8r43xciu3nsy35f.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/dep-graph.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/g8sg1dnmr2bf3gw.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/mxat7ug82hn3a9h.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/query-cache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/qxja9d8tgiu9whu.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/s1q7z1q4xt4iyou.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l-2zv70nd2pb4rj/work-products.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter01-27cdypheso6eu/s-gawe1vsbpa-1jdfy1l.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/debug/learn_rust" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/learn_rust" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/chapter01.rs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/chapter01.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-3b13a11c3faa2622/output-test-integration-test-chapter03" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-3b13a11c3faa2622/output-test-integration-test-chapter03" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-3b13a11c3faa2622/test-integration-test-chapter03" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-3b13a11c3faa2622/test-integration-test-chapter03" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.19chhl6gs2g6sybg.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.19chhl6gs2g6sybg.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.1a793im3g18wm78f.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.1a793im3g18wm78f.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.1otsurasjcuw39h3.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.1otsurasjcuw39h3.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.1x16yypecoh28q2e.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.1x16yypecoh28q2e.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.2969rfahd2l6tx47.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.2969rfahd2l6tx47.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.2bp60xg5v1rb1pqd.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.2bp60xg5v1rb1pqd.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.3505uwbgclfseaa0.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.3505uwbgclfseaa0.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.3c0fcw7chk8b2gt9.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.3c0fcw7chk8b2gt9.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.3h5xkzonqb0bjwzr.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.3h5xkzonqb0bjwzr.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.3l95ctw2aimcyide.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.3l95ctw2aimcyide.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.3pi76orjxjzh4ekv.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.3pi76orjxjzh4ekv.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.408hphrsvnp311uz.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.408hphrsvnp311uz.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.4p4bl2zredcbcj1t.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.4p4bl2zredcbcj1t.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.5733o8emgj189v08.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.5733o8emgj189v08.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.hqm96ogfopdlkds.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.hqm96ogfopdlkds.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/19chhl6gs2g6sybg.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/1a793im3g18wm78f.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/1otsurasjcuw39h3.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/1rhwp5tcvcle4cud.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/1rkuy9wfsflv3r54.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/1v4thp2lrrgf9mge.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/1x16yypecoh28q2e.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/1xl0heqkv7bilzta.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/28la31nno0rukjla.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/2969rfahd2l6tx47.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/2bp60xg5v1rb1pqd.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/2gcork46t2559mvk.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/2x0wd0rjwkyt9ah5.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/2x7t0xnft66awkzr.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/3505uwbgclfseaa0.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/37pkjydr2l8zur5e.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/3c0fcw7chk8b2gt9.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/3h5xkzonqb0bjwzr.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/3l95ctw2aimcyide.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/3pi76orjxjzh4ekv.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/408hphrsvnp311uz.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/4oknf76261qi80vd.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/4p4bl2zredcbcj1t.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/4slr7i1lxi4r8j0m.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/5733o8emgj189v08.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/58vufarjbvpc8vw8.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/ctj23dekj1drtui.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/dep-graph.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/hqm96ogfopdlkds.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/query-cache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y-3pei95ortvj2b/work-products.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu7d58uu-fmzs8y.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/19chhl6gs2g6sybg.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/1a793im3g18wm78f.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/1otsurasjcuw39h3.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/1rhwp5tcvcle4cud.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/1rkuy9wfsflv3r54.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/1v4thp2lrrgf9mge.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/1x16yypecoh28q2e.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/1xl0heqkv7bilzta.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/28la31nno0rukjla.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/2969rfahd2l6tx47.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/2bp60xg5v1rb1pqd.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/2gcork46t2559mvk.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/2x0wd0rjwkyt9ah5.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/2x7t0xnft66awkzr.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/3505uwbgclfseaa0.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/37pkjydr2l8zur5e.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/3c0fcw7chk8b2gt9.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/3h5xkzonqb0bjwzr.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/3l95ctw2aimcyide.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/3pi76orjxjzh4ekv.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/408hphrsvnp311uz.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/4oknf76261qi80vd.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/4p4bl2zredcbcj1t.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/4slr7i1lxi4r8j0m.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/5733o8emgj189v08.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/58vufarjbvpc8vw8.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/ctj23dekj1drtui.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/dep-graph.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/dep-graph.part.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/hqm96ogfopdlkds.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/query-cache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn-working/work-products.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/incremental/chapter03-2l7smbx6g3rss/s-gbbu8w00rh-y7f6wn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/chapter03.rs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/chapter03.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,7 +359,7 @@
       <workItem from="1656754769486" duration="733000" />
       <workItem from="1656755526481" duration="60000" />
       <workItem from="1656755597281" duration="598000" />
-      <workItem from="1656917080822" duration="1872000" />
+      <workItem from="1656917080822" duration="4506000" />
     </task>
     <servers />
   </component>
