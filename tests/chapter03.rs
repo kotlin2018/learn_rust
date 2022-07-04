@@ -37,7 +37,7 @@ mod test{
     // 同一个HashMap存储不同的 Key Value 键值对
     #[test]
     fn test_hash_map(){
-        /// 这种实现方式报错了
+        // 这种实现方式报错了
         // trait IHashMap{}
         // struct Go {}
         // impl IHashMap for Go{}
@@ -49,5 +49,29 @@ mod test{
         // let mut hash_map = HashMap::<Box<dyn IHashMap>,Box<dyn IHashMap2>>::new();
         // hash_map.insert(Box::new(Go{}),Box::new(Rust{}));
         // assert_eq!(hash_map.len(),1);
+    }
+
+    // 移动语义
+    #[test]
+    fn test_move_trait(){
+        // 结构体未实现 Copy trait
+        // #[derive(Debug)]
+        // struct A {
+        //     a: i32,
+        //     b: u32,
+        // }
+        // let a = A{a: 2,b: 3};
+        // let b = a; // 因为 A 结构体未实现 Copy trait, 此处 a的所有权已经被转移到了b
+        // println!("{:?}",a);//Error 不能操作一个已经被 move 的 a
+
+        // 这里 Copy/Clone 要都实现才不会报错，只实现 Copy 或者 Clone 就会报错
+        #[derive(Debug,Copy,Clone)]
+        struct B {
+            a: i32,
+            b: u32,
+        }
+        let bb = B{a: 5,b:6};
+        let cc = bb;
+        println!("{:?}",bb);
     }
 }
