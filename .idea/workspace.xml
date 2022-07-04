@@ -37,6 +37,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-3b13a11c3faa2622/output-test-integration-test-chapter03" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-3b13a11c3faa2622/output-test-integration-test-chapter03" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-3b13a11c3faa2622/test-integration-test-chapter03" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-3b13a11c3faa2622/test-integration-test-chapter03" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.1a793im3g18wm78f.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.1a793im3g18wm78f.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.2969rfahd2l6tx47.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.2969rfahd2l6tx47.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.2bp60xg5v1rb1pqd.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.2bp60xg5v1rb1pqd.rcgu.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.4oknf76261qi80vd.rcgu.o" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/chapter03-3b13a11c3faa2622.4oknf76261qi80vd.rcgu.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/chapter03.rs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/chapter03.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +117,7 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Cargo.Test test::test_move_trait">
+  <component name="RunManager" selected="Cargo.Test test::test_lifetime_scope">
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -120,23 +125,6 @@
     </configuration>
     <configuration name="Test chapter01::test_14" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package learn_rust --test chapter01 chapter01::test_14 -- --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <envs />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test salvo_test::parse_request" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package learn_rust --test salvo_test salvo_test::parse_request -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
       <option name="requiredFeatures" value="true" />
@@ -186,6 +174,23 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test test::test_lifetime_scope" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package learn_rust --test chapter03 test::test_lifetime_scope -- --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test test::test_move_trait" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package learn_rust --test chapter03 test::test_move_trait -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -205,11 +210,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Test test::test_lifetime_scope" />
         <item itemvalue="Cargo.Test test::test_move_trait" />
         <item itemvalue="Cargo.Test test::test_box" />
         <item itemvalue="Cargo.Test chapter01::test_14" />
         <item itemvalue="Cargo.Test test::test_46" />
-        <item itemvalue="Cargo.Test salvo_test::parse_request" />
       </list>
     </recent_temporary>
   </component>
@@ -278,7 +283,7 @@
       <workItem from="1656754769486" duration="733000" />
       <workItem from="1656755526481" duration="60000" />
       <workItem from="1656755597281" duration="598000" />
-      <workItem from="1656917080822" duration="5664000" />
+      <workItem from="1656917080822" duration="8715000" />
     </task>
     <servers />
   </component>

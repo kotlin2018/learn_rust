@@ -74,4 +74,27 @@ mod test{
         let cc = bb;
         println!("{:?}",bb);
     }
+
+    // 词法作用域，生命周期
+    #[test]
+    fn test_lifetime_scope(){
+        let outer_val = 1;
+        let outer_sp = "hello".to_string();
+        {
+            let inner_val = 2;
+            outer_val; //outer_val 是复制语义，它的所有权未被转移
+            outer_sp; //outer_sp 是移动语义，它的所有权就被转移到这个作用域中
+        }
+        println!("{:?}",outer_val);
+        //println!("{:?}",inner_val);//Error, inner_val 不在当前作用域内 cannot find value `inner_val` in this scope
+        //println!("{:?}",outer_sp); //Error, borrow of moved value: `outer_sp`
+
+        // match 匹配中的词法作用域
+        let a = "hello".to_string();
+        match a {
+            Some(s) => println!("{:?}",s),
+            _ => println!("nothing"),
+        }
+        println!("a = {:?}",a);
+    }
 }
