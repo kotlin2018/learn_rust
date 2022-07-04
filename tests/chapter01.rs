@@ -1,9 +1,15 @@
 
 #[cfg(test)]
 pub mod chapter01{
+    use std::collections::BTreeMap;
     use std::fmt::Debug;
+    use std::io::Read;
     use std::path::Component::Prefix;
     use std::sync::Arc;
+    use hmac::digest::KeyInit;
+    use hmac::Hmac;
+    use jwt::SignWithKey;
+    use sha2::Sha256;
 
     // 函数项类型
     #[test]
@@ -239,6 +245,7 @@ pub mod chapter01{
         // let j = f(i);
 
         // 修复上述错误
+        // late bound
         fn annotate<T,F>(f: F) -> F where for<'a>F: Fn(&'a T) -> &'a T {  // 这个 for<'a> 限定说明: 后面那个函数的 入参生命周期必须大于返回值
             f
         }
@@ -246,11 +253,47 @@ pub mod chapter01{
         let i = &3;
         let j = f(i); // 入参 i 的生命周期 > 返回值 j 的生命周期 (满足 f 这个闭包的生命周期限定)
         assert_eq!(*j,3);
+
+        // early bound
+        fn annotate02<'a,T: 'a,F>(f: F)-> F where F: Fn(&'a T) -> &'a T{
+            f
+        }
+
+        let f01 = annotate02(|x|x);
+        let i01 = &3;
+        let j01 = f01(i01);
+        assert_eq!(*j01,3);
     }
+
+    #[test]
+    fn test_12(){
+        // trait CheckSum<R: Read>{
+        //     fn calc(&mut self,r: R) -> Vec<u8>;
+        // }
+        //
+        // struct Xor;
+        // impl<R: Read> CheckSum<R> for Xor {
+        //     fn calc(&mut self,mut r: R) -> Vec<u8> {
+        //         let mut res: u8 = 0;
+        //         let mut buf = [0u8;8];
+        //         loop {
+        //             let read = r.read(&mut buf).unwrap();
+        //             if read == 0 {
+        //                 break;
+        //             }
+        //             for b in &buf[..read]{
+        //                 *res = b;
+        //             }
+        //         }
+        //         vec![res]
+        //     }
+        // }
+    }
+
 
     // trait bound 的用法
     #[test]
-    fn test_12(){
+    fn test_13(){
         struct Person;
         trait Behavior{
             fn sleep(&self){ // trait 的默认实现
@@ -268,5 +311,15 @@ pub mod chapter01{
         }
         sleep(Person);
         generic_sleep(Person);
+    }
+
+    #[test]
+    fn test_14(){
+        let key: Hmac<Sha256> = Hmac::new_from_slice(b"some-secret").unwrap();
+        let mut claims = BTreeMap::new();
+        claims.insert("sub","someone");
+
+        let token_str = claims.sign_with_key(&key).unwrap();
+        println!("{:?}",token_str);
     }
 }

@@ -65,6 +65,13 @@ fn main() {
     //     }
     // );
     // print!("{}",v)
+    let a = Box::new(42);
+    println!("{:?}",a);
+
+    let x = 5;
+    let y = x;
+    assert_eq!(x, 5);
+    assert_eq!(y, 5);
 }
 
 #[cfg(test)]
@@ -75,11 +82,16 @@ pub mod test{
     use std::string::ParseError;
     use std::sync::{Arc, Mutex};
     use std::{fmt, mem, thread, time};
+    use std::collections::BTreeMap;
     use std::error::Error;
     use std::fmt::{Display, Formatter};
     use std::fs::OpenOptions;
     use std::mem::swap;
     use std::thread::park;
+    use hmac::digest::KeyInit;
+    use hmac::Hmac;
+    use jwt::SignWithKey;
+    use sha2::Sha256;
     use super::*;
 
     // 所有权与类型系统，不同的类型拥有不同的行为 trait，例如:Copy(),Move()
@@ -174,16 +186,16 @@ pub mod test{
     //     assert_eq!(result,Ok(6));
     // }
 
-    #[test]
-    fn test_03(){
-        let a = i8::MAX;
-        println!("{}",a); // 输出 127 , i8 类型能表达的最大值是 127
-
-        let a = 3.1 as i8; // as 类型转换
-        let b = 100_i8 as i32;
-        let c = 'a' as u8;
-        println!("{},{},{}",a,b,c);
-    }
+    // #[test]
+    // fn test_03(){
+    //     let a = i8::MAX;
+    //     println!("{}",a); // 输出 127 , i8 类型能表达的最大值是 127
+    //
+    //     let a = 3.1 as i8; // as 类型转换
+    //     let b = 100_i8 as i32;
+    //     let c = 'a' as u8;
+    //     println!("{},{},{}",a,b,c);
+    // }
 
     #[test]
     fn test_04(){
@@ -280,19 +292,19 @@ pub mod test{
         println!("{:#?}",p); // Debug 美化输出
     }
 
-    struct List(Vec<i32>);
-    impl fmt::Display for List {
-        fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
-            let vec = &self.0;
-            write!(f,"[")?;
-            for (count,v) in vec.iter().enumerate(){
-                if count !=0 {
-                    write!(f,",")?;}
-                write!(f,"{}",v)?;
-            }
-            write!(f,"]")
-        }
-    }
+    // struct List(Vec<i32>);
+    // impl fmt::Display for List {
+    //     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+    //         let vec = &self.0;
+    //         write!(f,"[")?;
+    //         for (count,v) in vec.iter().enumerate(){
+    //             if count !=0 {
+    //                 write!(f,",")?;}
+    //             write!(f,"{}",v)?;
+    //         }
+    //         write!(f,"]")
+    //     }
+    // }
 
     #[test]
     fn test_11(){
@@ -300,46 +312,46 @@ pub mod test{
         println!("{}",v);
     }
 
-    #[derive(Debug)]
-    struct Any{
-        content: String,
-    }
+    // #[derive(Debug)]
+    // struct Any{
+    //     content: String,
+    // }
+    //
+    // impl From<i32> for Any{
+    //     fn from(u: i32) -> Self {
+    //        Any{
+    //            content: format!("{}",u)
+    //        }
+    //     }
+    // }
 
-    impl From<i32> for Any{
-        fn from(u: i32) -> Self {
-           Any{
-               content: format!("{}",u)
-           }
-        }
-    }
+    // #[test]
+    // fn test_12(){
+    //     let a = Any::from(1);
+    //     println!("{:?}",a);
+    //
+    //     let b: Any = 2.into();
+    //     println!("{:?}",b);
+    //
+    //     let string = String::from("hello world"); // String 构造自身实例
+    //     let str: String = string.into(); // 从自身实例转换成自身
+    //     println!("{:?}",str);
+    //
+    // }
 
-    #[test]
-    fn test_12(){
-        let a = Any::from(1);
-        println!("{:?}",a);
-
-        let b: Any = 2.into();
-        println!("{:?}",b);
-
-        let string = String::from("hello world"); // String 构造自身实例
-        let str: String = string.into(); // 从自身实例转换成自身
-        println!("{:?}",str);
-
-    }
-
-    struct City {
-        name: &'static str,
-        lat: f32,
-        lon: f32,
-    }
-    impl Display for City{
-        fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
-            let lat_c = if self.lat >= 0.0 {'N'}else {'S'};
-            let lon_c = if self.lon >= 0.0 {'E'}else {'W'};
-            write!(f,"{}: {:.3}°{} {:.3}°{}",
-                   self.name,self.lat.abs(),lat_c,self.lon.abs(),lon_c)
-        }
-    }
+    // struct City {
+    //     name: &'static str,
+    //     lat: f32,
+    //     lon: f32,
+    // }
+    // impl Display for City{
+    //     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+    //         let lat_c = if self.lat >= 0.0 {'N'}else {'S'};
+    //         let lon_c = if self.lon >= 0.0 {'E'}else {'W'};
+    //         write!(f,"{}: {:.3}°{} {:.3}°{}",
+    //                self.name,self.lat.abs(),lat_c,self.lon.abs(),lon_c)
+    //     }
+    // }
 
     #[test]
     fn test_13(){
@@ -353,17 +365,17 @@ pub mod test{
     }
 
     // 字面量和运算符
-    #[test]
-    fn test_14(){
-        // 整数相加
-        println!("1 + 2 = {}",1_u32+2);
-        // 整数相减
-        println!("1 - 2 = {}",1_i32 - 2);
-        // 短路求职的布尔运算
-        println!("true and false is {}",true&&false);
-        println!("true or false is {}",true || false);
-
-    }
+    // #[test]
+    // fn test_14(){
+    //     // 整数相加
+    //     println!("1 + 2 = {}",1_u32+2);
+    //     // 整数相减
+    //     println!("1 - 2 = {}",1_i32 - 2);
+    //     // 短路求职的布尔运算
+    //     println!("true and false is {}",true&&false);
+    //     println!("true or false is {}",true || false);
+    //
+    // }
 
     fn reverse(pair: (i32,bool)) -> (bool,i32){
         let (integer,boolean) = pair;
@@ -373,51 +385,51 @@ pub mod test{
     #[derive(Debug)]
     struct Matrix(f32,f32,f32,f32);
 
-    #[test]
-    fn test_15(){
-        let long_tuple = (1u8,2u16,3u32,4u64);
-        println!("long tuple first value: {}",long_tuple.0);
-
-        let pair = (1,true);
-        println!("pair is {:?}",pair);
-        println!("the reversed pair is {:?}",reverse(pair));
-
-        let tuple = (1,"hello",4.5,true);
-        let (a,b,c,d) = tuple;
-        println!("{:?},{:?},{:?},{:?}",a,b,c,d);
-
-        let matrix = Matrix(1.1,1.2,2.1,2.2);
-        println!("{:?}",matrix);
-
-    }
-
-    // i32类型切片
-    fn analyze_slice(slice: &[i32]){
-        println!("first element of the slice: {}",slice[0]);
-        println!("the slice has {} elements",slice.len());
-    }
-    #[test]
-    fn test_16(){
-        let xs = [1,2,3,4,5];
-        // 下标从 0 开始
-        println!("first element of the array: {}",xs[0]);
-        println!("second element of the array: {}",xs[1]);
-        println!("array size: {}", xs.len());
-        // 数组是在栈中分配的
-        println!("array occupies {} bytes",mem::size_of_val(&xs));
-        // 数组可以自动借用成为 slice
-        println!("borrow the whole array as a slice");
-        analyze_slice(&xs);
-
-        let ys = [0;500];
-        // slice 可以指向数组的一部分
-        println!("borrow a section of the array as a slice");
-        analyze_slice(&ys[1..4]);
-
-        // 越界的下标会引发致命错误(panic)
-        println!("{}",xs[5]);
-
-    }
+    // #[test]
+    // fn test_15(){
+    //     let long_tuple = (1u8,2u16,3u32,4u64);
+    //     println!("long tuple first value: {}",long_tuple.0);
+    //
+    //     let pair = (1,true);
+    //     println!("pair is {:?}",pair);
+    //     println!("the reversed pair is {:?}",reverse(pair));
+    //
+    //     let tuple = (1,"hello",4.5,true);
+    //     let (a,b,c,d) = tuple;
+    //     println!("{:?},{:?},{:?},{:?}",a,b,c,d);
+    //
+    //     let matrix = Matrix(1.1,1.2,2.1,2.2);
+    //     println!("{:?}",matrix);
+    //
+    // }
+    //
+    // // i32类型切片
+    // fn analyze_slice(slice: &[i32]){
+    //     println!("first element of the slice: {}",slice[0]);
+    //     println!("the slice has {} elements",slice.len());
+    // }
+    // #[test]
+    // fn test_16(){
+    //     let xs = [1,2,3,4,5];
+    //     // 下标从 0 开始
+    //     println!("first element of the array: {}",xs[0]);
+    //     println!("second element of the array: {}",xs[1]);
+    //     println!("array size: {}", xs.len());
+    //     // 数组是在栈中分配的
+    //     println!("array occupies {} bytes",mem::size_of_val(&xs));
+    //     // 数组可以自动借用成为 slice
+    //     println!("borrow the whole array as a slice");
+    //     analyze_slice(&xs);
+    //
+    //     let ys = [0;500];
+    //     // slice 可以指向数组的一部分
+    //     println!("borrow a section of the array as a slice");
+    //     analyze_slice(&ys[1..4]);
+    //
+    //     // 越界的下标会引发致命错误(panic)
+    //     println!("{}",xs[5]);
+    //
+    // }
 
     #[derive(Debug)]
     enum Number{
@@ -448,19 +460,19 @@ pub mod test{
     }
 
     // 类型别名
-    type NanoSecond = u64; // u64 的类型别名是 NanoSecond
-    type Inch = u64;
-    #[allow(non_camel_case_types)]
-    type u64_t = u64;
-    #[test]
-    fn test_18(){
-        let nano_seconds = 5 as NanoSecond;
-        let inches = 2 as Inch;
-        println!("{} nano_seconds + {} inches = {} unit?",
-        nano_seconds,
-        inches,
-        nano_seconds + inches);
-    }
+    // type NanoSecond = u64; // u64 的类型别名是 NanoSecond
+    // type Inch = u64;
+    // #[allow(non_camel_case_types)]
+    // type u64_t = u64;
+    // #[test]
+    // fn test_18(){
+    //     let nano_seconds = 5 as NanoSecond;
+    //     let inches = 2 as Inch;
+    //     println!("{} nano_seconds + {} inches = {} unit?",
+    //     nano_seconds,
+    //     inches,
+    //     nano_seconds + inches);
+    // }
 
     struct ToDrop;
 
@@ -484,54 +496,54 @@ pub mod test{
     }
 
     #[test]
-    fn test_21(){
-        let mut n = 0;
-        let mut count =  move||{
-            n += 1;
-            println!("Inner1: {}",n);
-        };
-        count(); // 这里输出 1
-        println!("Outer2: {}",n); // 这里输出 0
-        count(); // 这里输出 2 (这里为啥会输出 2 咧) 难道闭包能缓存内部变量的值？
-        println!("Outer3: {}",n); // 这里输出 0
-        count();
-    }
+    // fn test_21(){
+    //     let mut n = 0;
+    //     let mut count =  move||{
+    //         n += 1;
+    //         println!("Inner1: {}",n);
+    //     };
+    //     count(); // 这里输出 1
+    //     println!("Outer2: {}",n); // 这里输出 0
+    //     count(); // 这里输出 2 (这里为啥会输出 2 咧) 难道闭包能缓存内部变量的值？
+    //     println!("Outer3: {}",n); // 这里输出 0
+    //     count();
+    // }
 
-    #[test]
-    fn test_22(){
-        let mut n = 0;
-        let mut counter = ||{
-            n += 1;
-            println!("Inner1: {}",n);
-        };
-        counter();
-        counter();
-        println!("outer: {}",n);
-    }
+    // #[test]
+    // fn test_22(){
+    //     let mut n = 0;
+    //     let mut counter = ||{
+    //         n += 1;
+    //         println!("Inner1: {}",n);
+    //     };
+    //     counter();
+    //     counter();
+    //     println!("outer: {}",n);
+    // }
 
-    #[test]
-    fn test_23(){
-        let mut n = 0;
-        let mut count =  move||{
-            n += 1;
-            println!("Inner1: {}",n);
-        };
-        count(); // 这里输出 1
-        println!("Outer2: {}",n); // 这里输出 0
-        count(); // 这里输出 2 (这里为啥会输出 2 咧) 难道闭包能缓存内部变量的值？
-        println!("Outer3: {}",n); // 这里输出 0
-        count();
-    }
+    // #[test]
+    // fn test_23(){
+    //     let mut n = 0;
+    //     let mut count =  move||{
+    //         n += 1;
+    //         println!("Inner1: {}",n);
+    //     };
+    //     count(); // 这里输出 1
+    //     println!("Outer2: {}",n); // 这里输出 0
+    //     count(); // 这里输出 2 (这里为啥会输出 2 咧) 难道闭包能缓存内部变量的值？
+    //     println!("Outer3: {}",n); // 这里输出 0
+    //     count();
+    // }
 
     fn another()->i32{
         let x = 1;
         x
     }
-    #[test]
-    fn test_24(){
-        let x = another();
-        println!("{}",x);
-    }
+    // #[test]
+    // fn test_24(){
+    //     let x = another();
+    //     println!("{}",x);
+    // }
 
     // #[test]
     // fn test_25(){
@@ -552,11 +564,11 @@ pub mod test{
     }
 
     // 使用闭包捕获环境变量
-    fn counter(i: i32) -> impl FnMut(i32)->i32{  // FnMut 是个 trait
-        // println!("{}",n);
-        println!("{}",i);
-        move |n| n+i // 这是一个闭包，它的类型是 FnMut(i32)->i32
-    }
+    // fn counter(i: i32) -> impl FnMut(i32)->i32{  // FnMut 是个 trait
+    //     // println!("{}",n);
+    //     println!("{}",i);
+    //     move |n| n+i // 这是一个闭包，它的类型是 FnMut(i32)->i32
+    // }
     #[test]
     fn test_27(){
         let mut f = counter(2); //  i = 2
@@ -659,12 +671,12 @@ pub mod test{
         assert_eq!(a,[0,2,3]); //Ok
 
         // match 表达式
-        fn check_optional(opt: Option<i32>){
-            match opt {
-                Some(p) =>println!("has value{}",p),
-                None => println!("has no value"),
-            }
-        }
+        // fn check_optional(opt: Option<i32>){
+        //     match opt {
+        //         Some(p) =>println!("has value{}",p),
+        //         None => println!("has no value"),
+        //     }
+        // }
         // fn handle_result(res: i32) -> Result<i32,dyn Error>{
         //     do_something(res)?;
         //     // 问号操作符等价于
@@ -703,17 +715,17 @@ pub mod test{
         };
 
         // 动态大小数组
-        let v = vec![1,2,3];
-        match v[..] {
-            [a,b] => {/* 不匹配 */}
-            [a,b,c] => {println!("{},{},{}",a,b,c)}
-            _ => {/* 必须包含这条分支，因为长度是动态的*/}
-        };
-
-        let x = &Some(3);
-        if let Some(y) = x { // 这里编译器自动将 Some(y) 填充为 &Some(y)
-            y; // &i32
-        }
+        // let v = vec![1,2,3];
+        // match v[..] {
+        //     [a,b] => {/* 不匹配 */}
+        //     [a,b,c] => {println!("{},{},{}",a,b,c)}
+        //     _ => {/* 必须包含这条分支，因为长度是动态的*/}
+        // };
+        //
+        // let x = &Some(3);
+        // if let Some(y) = x { // 这里编译器自动将 Some(y) 填充为 &Some(y)
+        //     y; // &i32
+        // }
     }
 
     /* 智能指针
@@ -932,6 +944,18 @@ pub mod test{
             println!("=======")
         }
 
+        // jwt 的使用
+        #[test]
+        fn test_46(){
+            // let key: Hmac<Sha256> = Hmac::new_from_slice(b"some-secret").unwrap();
+            // let mut claims = BTreeMap::new();
+            // claims.insert("sub","someone");
+            //
+            // let token_str = claims.sign_with_key(&key).unwrap();
+            // println!("{:?}",token_str);
+            let a = 5;
+            println!("{:?}",a);
+        }
     }
 }
 
