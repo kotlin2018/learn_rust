@@ -1,10 +1,11 @@
 #[cfg(test)]
 mod salvo_test{
-    use futures::future::JoinAll;
     use salvo::prelude::*;
     use salvo::prelude::{Text::Plain};
     use salvo::writer::Json;
     use serde::{Serialize,Deserialize};
+    use std::fs::*;
+    use std::path::Path;
 
     #[fn_handler]
     async fn hello_world() -> &'static str {
@@ -65,10 +66,19 @@ mod salvo_test{
         Json(user)
     }
 
+    // 使用统一结构体返回数据
     #[fn_handler]
     async fn get_req_result(req: &mut Request) -> Json<Result<User>>{
         let user = req.parse_json::<User>().await.unwrap();
         Json(Result{code: Some(200),msg: Some("success".to_string()),data: Some(user)})
+    }
+
+    // 上传文件到本地
+    #[fn_handler]
+    async fn upload_file(req: &mut Request) -> String {
+        let file = req.file("file").await.unwrap();
+        let dest = file.name().unwrap();
+        dest.into()
     }
 
 // 这种响应数据的方式是错误的
@@ -87,7 +97,8 @@ mod salvo_test{
             .push(Router::with_path("query").get(get_query_param))
             .push(Router::with_path("form").post(get_form_body))
             .push(Router::with_path("json").post(get_json_body))
-            .push(Router::with_path("result").post(get_req_result));
+            .push(Router::with_path("result").post(get_req_result))
+            .push(Router::with_path("upload").post(upload_file));
         tracing::info!("Listening on http://127.0.0.1:7878");
         Server::new(TcpListener::bind("127.0.0.1:7878")).serve(router).await;
     }
