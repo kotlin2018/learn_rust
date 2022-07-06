@@ -161,4 +161,15 @@ mod test{
         }
     }
 
+    #[test]
+    fn test_closure2(){
+        let mut optional = Some("hello".to_string());
+        if let Some(i) = optional{// optional的所有权转移到了 if let 表达式中
+            if i == "hell".to_string(){
+                println!("{:?}",i);
+            }else {
+                println!("{:?}",Some(i+" "+&"world".to_string()))
+            }
+        }
+    }
 }
