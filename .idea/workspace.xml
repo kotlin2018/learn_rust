@@ -35,6 +35,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b93b726c-e34b-4f1a-a70b-03d0d63a620f" name="Default Changelist" comment="Default Changelist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-f7a9d5b9cfefb21a/output-test-integration-test-salvo_test" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-f7a9d5b9cfefb21a/output-test-integration-test-salvo_test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/salvo_test.rs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/salvo_test.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,6 +282,7 @@
       <workItem from="1657077351794" duration="256000" />
       <workItem from="1657085819730" duration="1749000" />
       <workItem from="1657087908317" duration="152000" />
+      <workItem from="1657089983499" duration="817000" />
     </task>
     <servers />
   </component>

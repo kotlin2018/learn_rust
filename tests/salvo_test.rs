@@ -1,5 +1,6 @@
 #[cfg(test)]
 mod salvo_test{
+    use futures::future::JoinAll;
     use salvo::prelude::*;
     use salvo::prelude::{Text::Plain};
     use salvo::writer::Json;
@@ -42,6 +43,14 @@ mod salvo_test{
         email: Option<String>,
     }
 
+    // 通用的返回数据包装器
+    #[derive(Debug,Serialize,Deserialize)]
+    pub struct Result<T>{
+        code: Option<u32>,
+        msg: Option<String>,
+        data: Option<T>
+    }
+
     // 使用 form-data 提交请求参数
     #[fn_handler]
     async fn get_form_body(req: &mut Request) -> Json<User>{
@@ -51,9 +60,15 @@ mod salvo_test{
 
     // 使用 application/json 提交请求参数
     #[fn_handler]
-    async fn get_json_body(req: &mut Request,res: &mut Response) -> Json<User>{
+    async fn get_json_body(req: &mut Request) -> Json<User>{
         let user = req.parse_json::<User>().await.unwrap();
         Json(user)
+    }
+
+    #[fn_handler]
+    async fn get_req_result(req: &mut Request) -> Json<Result<User>>{
+        let user = req.parse_json::<User>().await.unwrap();
+        Json(Result{code: Some(200),msg: Some("success".to_string()),data: Some(user)})
     }
 
 // 这种响应数据的方式是错误的
@@ -71,7 +86,8 @@ mod salvo_test{
             .push(Router::with_path("<id:num>").get(get_path_variable))
             .push(Router::with_path("query").get(get_query_param))
             .push(Router::with_path("form").post(get_form_body))
-            .push(Router::with_path("json").post(get_json_body));
+            .push(Router::with_path("json").post(get_json_body))
+            .push(Router::with_path("result").post(get_req_result));
         tracing::info!("Listening on http://127.0.0.1:7878");
         Server::new(TcpListener::bind("127.0.0.1:7878")).serve(router).await;
     }
