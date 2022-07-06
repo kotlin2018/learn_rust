@@ -1,37 +1,9 @@
-use salvo::prelude::*;
-use serde::{Deserialize,Serialize};
-
 #[cfg(test)]
-pub mod salvo_test{
-    use crate::{Request, Response, Router, Server, TcpListener, Text,Serialize,Deserialize};
-
-    #[derive(Debug,Serialize,Deserialize)]
-    pub struct User{
-        name: Option<String>,
-        age: Option<u32>,
-        gender: Option<bool>,
-    }
-
-    pub async fn add_user(req: &mut Request,res: &mut Response){
-        let user = req.parse_json::<User>().await.unwrap();
-        res.render(Text::Json(user))
-    }
-
-    // 将 json 格式的参数解析成结构体
-    #[test]
-    pub async fn parse_request(){
-        tracing_subscriber::fmt().init();
-        tracing::info!("Listening on http://127.0.0.1:7878");
-        let router = Router::with_path("/addUser").post(add_user);
-        Server::new(TcpListener::bind("127.0.0.1:7878")).serve(router).await;
-    }
-
-}
-
-#[cfg(test)]
-pub mod salvo_test02{
+mod salvo_test{
     use salvo::prelude::*;
-    use salvo::prelude::{Text::Json,Text::Plain};
+    use salvo::prelude::{Text::Plain};
+    use salvo::writer::Json;
+    use serde::{Serialize,Deserialize};
 
     #[fn_handler]
     async fn hello_world() -> &'static str {
@@ -45,7 +17,7 @@ pub mod salvo_test02{
         if token == "hello" {
             res.render(Plain(token));
         }else {
-            res.render(Json("Error"));
+            res.render(Plain("Error"));
         }
     }
 
@@ -64,15 +36,42 @@ pub mod salvo_test02{
         res.render(Plain(format!("username is {:?} and password is {:?}",username,password)))
     }
 
-    #[tokio::main]
-    async fn main(){
+    #[derive(Debug,Serialize,Deserialize)]
+    pub struct User{
+        gender: Option<bool>,
+        email: Option<String>,
+    }
+
+    // 使用 form-data 提交请求参数
+    #[fn_handler]
+    async fn get_form_body(req: &mut Request) -> Json<User>{
+        let user = req.parse_form::<User>().await.unwrap();
+        Json(user)
+    }
+
+    // 使用 application/json 提交请求参数
+    #[fn_handler]
+    async fn get_json_body(req: &mut Request,res: &mut Response) -> Json<User>{
+        let user = req.parse_json::<User>().await.unwrap();
+        Json(user)
+    }
+
+// 这种响应数据的方式是错误的
+// #[fn_handler]
+// async fn get_json_body(req: &mut Request,res: &mut Response){
+//     let user = req.parse_json::<User>().await.unwrap();
+//     res.render(Text::Json(user));
+// }
+
+    #[tokio::test]
+    async fn test(){
         tracing_subscriber::fmt::init();
-        // 对 /index 上的 url 使用 jwt_auth 这个中间件
         let router = Router::new().path("/").
             hoop(jwt_auth).get(hello_world)
             .push(Router::with_path("<id:num>").get(get_path_variable))
-            .push(Router::with_path("login").get(get_query_param));
-
+            .push(Router::with_path("query").get(get_query_param))
+            .push(Router::with_path("form").post(get_form_body))
+            .push(Router::with_path("json").post(get_json_body));
         tracing::info!("Listening on http://127.0.0.1:7878");
         Server::new(TcpListener::bind("127.0.0.1:7878")).serve(router).await;
     }
