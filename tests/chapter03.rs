@@ -1,9 +1,24 @@
 
 #[cfg(test)]
 mod test{
+    use std::cell::{Cell, Ref, RefCell};
     use std::collections::HashMap;
-    use serde::de::Unexpected::Option;
+    use std::rc::Rc;
     use tracing_subscriber::fmt::try_init;
+
+    #[derive(Debug,Clone)]
+    struct User {
+        name: String,
+        age: RefCell<u32>,
+        gender: bool,
+        height: Cell<u32>,
+        email: RefCell<String>,
+    }
+    impl Drop for User{
+        fn drop(&mut self) {
+            println!("user is drop!")
+        }
+    }
 
     // Box智能指针
     // Copy trait 是值语义的复制，rust编译器自动为基本数据类型实现该 trait
@@ -163,13 +178,59 @@ mod test{
 
     #[test]
     fn test_closure2(){
-        let mut optional = Some("hello".to_string());
-        if let Some(i) = optional{// optional的所有权转移到了 if let 表达式中
-            if i == "hell".to_string(){
-                println!("{:?}",i);
+        // let mut optional = Some("hello".to_string());
+        // if let Some(i) = optional{// optional的所有权转移到了 if let 表达式中
+        //     if i == "hell".to_string(){
+        //         println!("{:?}",i);
+        //     }else {
+        //         println!("{:?}",Some(i+" "+&"world".to_string()))
+        //     }
+        // }
+
+       let mut optional = Some(0);
+        if let Some(i) = optional {
+            if i > 9 {
+                println!("Greater than 9,quit!",);
+                optional = None;
             }else {
-                println!("{:?}",Some(i+" "+&"world".to_string()))
+                println!("`i` is `{:?}`.Try again.",i);
+                optional = Some(i+1);
             }
         }
+        println!("i = {:?}",optional.unwrap());
     }
+
+    // Rc 单线程引用计数器
+    #[test]
+    fn test_Rc(){
+        let user = User{name:"小明".to_string(),age: RefCell::new(18),gender: true, height: Cell::new(0), email: RefCell::new("".to_string()) };
+        let rc_user = Rc::new(user);
+        // clone() 指向 User 对象的引用 +1, (仅仅是引用 + 1 ，堆中的对象并没有被复制)
+        let rc_user_01 = rc_user.clone();
+        let rc_user_02 = rc_user.clone();
+        let rc_user_03 = rc_user.clone();
+        println!("{:?}",rc_user);
+        println!("{:?}",rc_user_01);
+        println!("{:?}",rc_user_02);
+        println!("{:?}",rc_user_03);
+        println!("调用完毕");
+    }
+
+    // Cell RefCell 共享引用 (不可变变量，引用) 的内部可变性
+    #[test]
+    fn test_RefCell(){
+        let user = User{ //
+            name: "小明".to_string(),
+            age: RefCell::new(19),
+            gender: true,
+            height: Cell::new(178),
+            email: RefCell::new("123456@qq.com".to_string())
+        };
+        println!("{:#?}",user);
+        println!("===========================================");
+        let cell_address = user.height.set(199);
+        let refcell_email = user.email.replace("32127286".to_string());
+        println!("{:#?}",user);
+    }
+
 }

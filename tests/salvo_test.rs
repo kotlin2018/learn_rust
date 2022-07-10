@@ -70,6 +70,7 @@ mod salvo_test{
     #[fn_handler]
     async fn get_req_result(req: &mut Request) -> Json<Result<User>>{
         let user = req.parse_json::<User>().await.unwrap();
+        let a = 11;
         Json(Result{code: Some(200),msg: Some("success".to_string()),data: Some(user)})
     }
 
