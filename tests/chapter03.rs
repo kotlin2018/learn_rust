@@ -4,6 +4,7 @@ mod test{
     use std::cell::{Cell, Ref, RefCell};
     use std::collections::HashMap;
     use std::rc::Rc;
+    use salvo::http::headers::Te;
     use tracing_subscriber::fmt::try_init;
 
     #[derive(Debug,Clone)]
@@ -17,6 +18,19 @@ mod test{
     impl Drop for User{
         fn drop(&mut self) {
             println!("user is drop!")
+        }
+    }
+
+    #[derive(Debug)]
+    pub struct Teacher {
+        name: String,
+        curriculums: Vec<String>,
+        num: i32,
+    }
+    
+    impl Drop for Teacher{
+        fn drop(&mut self) {
+            println!("teacher is drop!")
         }
     }
 
@@ -232,5 +246,34 @@ mod test{
         let refcell_email = user.email.replace("32127286".to_string());
         println!("{:#?}",user);
     }
+    
+    fn save(user: Rc<User>,teacher: Rc<Teacher>){
+        add(user,teacher)
+    }
+    
+    fn add(user: Rc<User>,teacher: Rc<Teacher>){
+        println!("{:#?}",user);
+        println!("{:#?}",teacher);
+    }
 
+    // Rc 引用计数智能指针 在嵌套函数中的应用 (Rc 只能用在单线程中,默认只能修饰不可变引用、对象)
+    #[test]
+    fn test_embed_func(){
+        let user = Rc::new(User{
+            name: "韩信".to_string(),
+            age: RefCell::new(23),
+            gender: true,
+            height: Cell::new(188),
+            email: RefCell::new("1663309@163.com".to_string())
+        });
+        let teacher = Rc::new(Teacher{
+            name: "赵老师".to_string(),
+            curriculums: vec!["语文".to_string(),"数学".to_string()],
+            num: 1
+        });
+        save(user.clone(),teacher.clone());
+        println!("============================================================");
+        println!("user = {:#?}",user);
+        println!("teacher = {:#?}",teacher);
+    }
 }
