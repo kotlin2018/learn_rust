@@ -276,4 +276,65 @@ mod test{
         println!("user = {:#?}",user);
         println!("teacher = {:#?}",teacher);
     }
+
+    // 这个结构体的字段类型有 String 类型，并且String类型只实现了 Clone Trait,因此该 结构体也只能实现 Clone Trait,不能实现Copy Trait
+    #[derive(Debug,Clone)]
+    pub struct ApplicationConfig{
+        pub debug: bool,
+        pub server_url: String,
+        pub redis_url: String,
+        pub database_url: String,
+        pub logic_column: String,
+        pub logic_un_deleted: i64,
+        pub logic_deleted: i64,
+        pub log_dir: String,
+        pub log_cup: i64,
+        pub log_temp_size: String,
+        pub log_zip: bool,
+        pub log_rolling_type: String,
+        pub log_level: String,
+        pub sms_redis_send_key_prefix: String,
+        pub jwt_secret: String,
+        pub white_list_api: Vec<String>,
+        pub cache_type: String,
+        // 登陆失败重试
+        pub login_fail_replay: i64,
+        pub login_fail_retry_wait_sec: i64,
+    }
+
+    impl Default for ApplicationConfig {
+        fn default() -> Self {
+            Self{
+                debug: false,
+                server_url: "".to_string(),
+                redis_url: "".to_string(),
+                database_url: "".to_string(),
+                logic_column: "".to_string(),
+                logic_un_deleted: 0,
+                logic_deleted: 0,
+                log_dir: "".to_string(),
+                log_cup: 0,
+                log_temp_size: "".to_string(),
+                log_zip: false,
+                log_rolling_type: "".to_string(),
+                log_level: "".to_string(),
+                sms_redis_send_key_prefix: "".to_string(),
+                jwt_secret: "".to_string(),
+                white_list_api: vec![],
+                cache_type: "".to_string(),
+                login_fail_replay: 0,
+                login_fail_retry_wait_sec: 0
+            }
+        }
+    }
+    
+    #[test]
+    fn test_impl_clone(){
+        let cfg = ApplicationConfig::default();
+        let config = cfg.clone();
+        let config2 = cfg.clone();
+        println!("cfg = {:?}",cfg);
+        println!("cfg = {:?}",config);
+        println!("cfg = {:?}",config2);
+    }
 }
