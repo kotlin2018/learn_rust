@@ -92,4 +92,25 @@ mod smart_pointer_test{
         };
         thread::sleep(time::Duration::from_secs(1));
     }
+
+    pub fn change(a: Arc<i32>){
+        for _ in 0..10 {
+            let a = a.clone();
+            thread::spawn(move ||{
+                println!("{:?}",a);
+            });
+        };
+        println!("线程之外的 a {:?}",a);
+    }
+
+    pub fn embed(b: i32,a: i32){
+        let a = a+ b;
+        change(Arc::new(a))
+    }
+
+    // 在函数之中安全的传递 所有权
+    #[test]
+    fn test_arc_embed_func(){
+        embed(1,2);
+    }
 }
