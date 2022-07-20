@@ -337,4 +337,19 @@ mod test{
         println!("cfg = {:?}",config);
         println!("cfg = {:?}",config2);
     }
+
+    #[test]
+    fn get_max(){
+        // 定义一个 Vec<i32>
+        let number_list = vec![34,50,25,100,65];
+        // 定义一个最大值，默认是 number_list 的第一个元素
+        let mut largest = number_list[0]; // 这里是正确的，但是 Clion 却提示错误
+        // 遍历 number_list 中的元素，并将它的每一个元素都与默认的最大值比较
+        for number in number_list {
+            if number > largest {
+                largest = number;
+            }
+        }
+        println!("The largest number is {}",largest);
+    }
 }

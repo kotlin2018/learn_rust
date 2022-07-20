@@ -1,0 +1,8 @@
+/Users/lo/rust/practice/learn_rust/target/debug/deps/cpufeatures-40a5d1de464d9053.rmeta: /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/cpufeatures-0.2.2/src/lib.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/cpufeatures-0.2.2/src/x86.rs
+
+/Users/lo/rust/practice/learn_rust/target/debug/deps/libcpufeatures-40a5d1de464d9053.rlib: /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/cpufeatures-0.2.2/src/lib.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/cpufeatures-0.2.2/src/x86.rs
+
+/Users/lo/rust/practice/learn_rust/target/debug/deps/cpufeatures-40a5d1de464d9053.d: /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/cpufeatures-0.2.2/src/lib.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/cpufeatures-0.2.2/src/x86.rs
+
+/Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/cpufeatures-0.2.2/src/lib.rs:
+/Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/cpufeatures-0.2.2/src/x86.rs:
