@@ -1,9 +1,11 @@
 
 #[cfg(test)]
 mod test{
+    use std::borrow::{Borrow, BorrowMut};
     use std::cell::{Cell, Ref, RefCell};
     use std::collections::HashMap;
     use std::rc::Rc;
+    use std::time::Duration;
     use salvo::http::headers::Te;
     use tracing_subscriber::fmt::try_init;
 
@@ -351,5 +353,48 @@ mod test{
             }
         }
         println!("The largest number is {}",largest);
+        let ti = Duration::from_secs(111);
     }
+
+    #[derive(Debug,Clone)]
+    pub struct Student<'a>{
+        pub age: i32,
+        pub name: String,
+        pub email: &'a str,
+        pub address: &'a str,
+    }
+
+    #[test]
+    fn test_vec_move(){
+
+        // 类型为 Copy 语义
+        let mut i32_list: Vec<i32> = Vec::new();
+        i32_list.push(1);
+        let res = i32_list[0];
+        assert_eq!(1,res);
+
+        // 类型为 Move 语义
+        let  mut object_list: Vec<Student> = Vec::new();
+        object_list.push(Student{
+            age: 11,
+            name: "小明".to_string(),
+            email: "123456@qq.com",
+            address: "南山"
+        });
+
+        // 错误的写法
+        let res = object_list[0]; //Error: Cannot move
+
+        // 错误的写法
+        let res = object_list[0.clone()]; //Error: Cannot move
+
+        // 正确的写法
+        let res = object_list[0].clone();
+        println!("{:?}",res);
+
+        // 正确的写法
+        let res = object_list.get(0);
+        println!("{:?}",res);
+    }
+
 }
