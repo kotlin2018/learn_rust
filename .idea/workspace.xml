@@ -35,6 +35,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b93b726c-e34b-4f1a-a70b-03d0d63a620f" name="Default Changelist" comment="Default Changelist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-485837964b651c3a/output-test-integration-test-chapter03" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-485837964b651c3a/output-test-integration-test-chapter03" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-485837964b651c3a/test-integration-test-chapter03" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/.fingerprint/learn_rust-485837964b651c3a/test-integration-test-chapter03" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/chapter03.rs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/chapter03.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,27 +113,10 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Cargo.Test test::test_vec_move">
+  <component name="RunManager" selected="Cargo.Test test::test_rc_vec">
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test smart_pointer_test::test_arc (1)" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package learn_rust --test rc_arc_box smart_pointer_test::test_arc -- --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <envs />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
     <configuration name="Test smart_pointer_test::test_arc_embed_func" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
@@ -185,6 +170,23 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test test::test_rc_vec" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package learn_rust --test chapter03 test::test_rc_vec -- --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test test::test_vec_move" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package learn_rust --test chapter03 test::test_vec_move -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -204,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Test test::test_rc_vec" />
         <item itemvalue="Cargo.Test test::test_vec_move" />
         <item itemvalue="Cargo.Test test::get_max" />
         <item itemvalue="Cargo.Test smart_pointer_test::test_arc_embed_func" />
         <item itemvalue="Cargo.Test smart_pointer_test::test_arc_mutex" />
-        <item itemvalue="Cargo.Test smart_pointer_test::test_arc (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -298,7 +300,8 @@
       <workItem from="1658020320312" duration="5995000" />
       <workItem from="1658307819413" duration="1667000" />
       <workItem from="1658396555656" duration="998000" />
-      <workItem from="1658406869893" duration="2534000" />
+      <workItem from="1658406869893" duration="4007000" />
+      <workItem from="1658414288518" duration="1158000" />
     </task>
     <servers />
   </component>

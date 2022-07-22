@@ -364,6 +364,7 @@ mod test{
         pub address: &'a str,
     }
 
+    /// 获取 类型为 Move 语义的 Vec 中的元素
     #[test]
     fn test_vec_move(){
 
@@ -383,10 +384,10 @@ mod test{
         });
 
         // 错误的写法
-        let res = object_list[0]; //Error: Cannot move
-
-        // 错误的写法
-        let res = object_list[0.clone()]; //Error: Cannot move
+        // let res = object_list[0]; //Error: Cannot move
+        //
+        // // 错误的写法
+        // let res = object_list[0.clone()]; //Error: Cannot move
 
         // 正确的写法
         let res = object_list[0].clone();
@@ -395,6 +396,52 @@ mod test{
         // 正确的写法
         let res = object_list.get(0);
         println!("{:?}",res);
+    }
+
+    // #[test]
+    // fn test_rc_vec(){
+    //     let mut object_list = Vec::from(Rc::new(Student));
+    //     let st1 = Rc::new(Student{
+    //         age: 0,
+    //         name: "".to_string(),
+    //         email: "",
+    //         address: ""
+    //     });
+    //     object_list.push(st1);
+    //     let res = object_list[0].clone();
+    //     println!("{:?}",res);
+    // }
+
+    // 使用泛型 Fn trait 存储 closure (闭包)
+    #[test]
+    fn test_fn_trait_closure(){
+        // 定义一个存储 Fn(i32) -> i32 闭包的结构体
+        struct Container<T> where T: Fn(i32) -> i32{
+            calculation: T,
+            value: Option<i32>,
+        }
+
+        // impl 后面定义 T ，结构体 Container 后面使用 T
+        impl <T>Container<T> where T: Fn(i32) -> i32{
+            fn new(calculation: T) -> Container<T>{
+                Container{
+                    calculation,
+                    value: None,
+                }
+            }
+
+            //
+            fn value(&mut self,arg: i32) -> i32{
+                match self.value{
+                    Some(v) =>v, // 有值返回值
+                    None => { // 无值创造值
+                        let v = self.calculation(arg);
+                        self.value = Some(v);
+                        v
+                    }
+                }
+            }
+        }
     }
 
 }
