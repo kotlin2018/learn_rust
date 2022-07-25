@@ -64,4 +64,13 @@ cargo install cargo-audit
   cargo expand
   `````
 
+# 5、生成 `文档`
+````shell
+cargo doc
+````
+
+# 6、生成文档并打开文档
+````shell
+cargo doc --open
+````
 

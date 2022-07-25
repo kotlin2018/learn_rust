@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["salvo_core"] = [{"text":"impl <a class=\"trait\" href=\"enumflags2/trait.BitFlag.html\" title=\"trait enumflags2::BitFlag\">BitFlag</a> for <a class=\"enum\" href=\"salvo_core/http/request/enum.ParseSource.html\" title=\"enum salvo_core::http::request::ParseSource\">ParseSource</a>","synthetic":false,"types":["salvo_core::http::request::ParseSource"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -3,7 +3,26 @@
 #[cfg(test)]
 mod smart_pointer_test{
     use std::{thread, time};
+    use std::cell::{Cell, RefCell};
+    use std::hash::Hash;
+    use std::ops::Index;
+    use std::rc::Rc;
     use std::sync::{Arc, Mutex, MutexGuard};
+
+    #[derive(Debug)]
+    struct People {
+        name: String,
+        age: RefCell<u32>, // 运行时进行借用检查
+        gender: bool,
+        height: Cell<u32>, // 编译时借用检查
+        email: RefCell<String>,
+    }
+
+    impl Drop for People {
+        fn drop(&mut self) {
+            println!("People is drop !!!")
+        }
+    }
 
     #[derive(Debug)]
     struct Hello{
@@ -112,5 +131,46 @@ mod smart_pointer_test{
     #[test]
     fn test_arc_embed_func(){
         embed(1,2);
+    }
+
+    // 像引用一样使用智能指针
+    #[test]
+    fn test_box(){
+        let x = 5;
+        let y = Box::new(5);
+        assert_eq!(5,x);
+        //assert_eq!(5,y); //Error : 类型不一致，5是 i32 类型，而 y 是 &i32类型
+        assert_eq!(5,*y);  //Ok: 因为 y 是引用类型，所有对 y 执行 * (解引用) 操作是可以的
+
+        let s = "hello world";
+        let ss = String::from("hello world"); // String 实现了 ops::Deref
+        assert_eq!("hello world",s);
+        assert_eq!("hello world",ss);
+        println!("{}",&ss);
+
+    }
+
+    // Rc 单线程引用计数器 (生成环境中应该根据使用场景使用 Rc 或者 Arc ,而不是使用类型自带的 Clone trait
+    #[test]
+    fn test_Rc(){
+        let people = People{name:"小明".to_string(),age: RefCell::new(18),gender: true, height: Cell::new(0), email: RefCell::new("".to_string()) };
+        let rc_people = Rc::new(people);
+
+        // 指向 User 对象的引用 +1, (仅仅是引用 + 1 ，堆中的对象并没有被复制)
+        let rc_people_clone_01 = rc_people.clone();
+        let rc_people_clone_02 = rc_people.clone();
+        let rc_people_clone_03 = rc_people.clone();
+        println!("{:?}",rc_people);
+        println!("{:?}",rc_people_clone_01);
+        println!("{:?}",rc_people_clone_02);
+        println!("{:?}",rc_people_clone_03);
+
+        println!("rc_user 对象的引用计数 = {:?}",Rc::strong_count(&rc_people));
+
+        let rc_user_01 = Rc::clone(&rc_people);
+        let rc_user_02 = Rc::clone(&rc_people);
+        let rc_user_03 = Rc::clone(&rc_people);
+        println!("rc_user 对象的引用计数 = {:?}",Rc::strong_count(&rc_people));
+        println!("调用完毕");
     }
 }

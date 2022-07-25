@@ -5,6 +5,14 @@ edition = "2021"  # 版次(每三年发行) 目前只有 2015、2018、2021 三�
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+# 构建工作空间
+#[workspace]
+#members = [
+#    # 这里先定义当前工作空间的成员 (然后在当前 project 的根目录下执行 cargo new adder)
+#    "adder",
+#]
+
+
 [dependencies]
 tokio = {version = "1",features = ["macros"]}
 futures = "0.3"

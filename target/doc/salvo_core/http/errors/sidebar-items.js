@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ParseError","ParseError, errors happened when read data from http request."]],"struct":[["StatusError","StatusError contains http error information."]],"type":[["ParseResult","Resut type with `ParseError` has it’s error type."],["StatusResult","Resut type with `StatusError` has it’s error type."]]});

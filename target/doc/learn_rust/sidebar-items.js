@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["main",""],["nice",""]],"macro":[["cap",""],["hashmap",""],["unit",""]],"static":[["sum",""]],"struct":[["People",""]]});

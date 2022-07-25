@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Text","Write text content to response as text content."]],"struct":[["Json","Write serializable content to response as json content. It will set `content-type` to `application/json; charset=utf-8`."]],"trait":[["Piece","`Piece` is used to write data to [`Response`]."],["Writer","Writer is used to write data to response."]]});

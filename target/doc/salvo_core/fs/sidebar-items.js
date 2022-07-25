@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["FileChunk","FileChunk"],["NamedFile","A file with an associated name."],["NamedFileBuilder","Builder for build [`NamedFile`]."]]});

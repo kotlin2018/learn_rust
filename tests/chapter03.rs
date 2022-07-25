@@ -216,22 +216,6 @@ mod test{
         println!("i = {:?}",optional.unwrap());
     }
 
-    // Rc 单线程引用计数器
-    #[test]
-    fn test_Rc(){
-        let user = User{name:"小明".to_string(),age: RefCell::new(18),gender: true, height: Cell::new(0), email: RefCell::new("".to_string()) };
-        let rc_user = Rc::new(user);
-        // clone() 指向 User 对象的引用 +1, (仅仅是引用 + 1 ，堆中的对象并没有被复制)
-        let rc_user_01 = rc_user.clone();
-        let rc_user_02 = rc_user.clone();
-        let rc_user_03 = rc_user.clone();
-        println!("{:?}",rc_user);
-        println!("{:?}",rc_user_01);
-        println!("{:?}",rc_user_02);
-        println!("{:?}",rc_user_03);
-        println!("调用完毕");
-    }
-
     // Cell RefCell 共享引用 (不可变变量，引用) 的内部可变性
     #[test]
     fn test_RefCell(){
@@ -416,32 +400,33 @@ mod test{
     #[test]
     fn test_fn_trait_closure(){
         // 定义一个存储 Fn(i32) -> i32 闭包的结构体
-        struct Container<T> where T: Fn(i32) -> i32{
-            calculation: T,
-            value: Option<i32>,
-        }
+        // struct Container<T> where T: Fn(i32) -> i32{
+        //     calculation: T,
+        //     value: Option<i32>,
+        // }
+        //
+        // // impl 后面定义 T ，结构体 Container 后面使用 T
+        // impl <T>Container<T> where T: Fn(i32) -> i32{
+        //     fn new(calculation: T) -> Container<T>{
+        //         Container{
+        //             calculation,
+        //             value: None,
+        //         }
+        //     }
+        //
+        //     //
+        //     fn value(&mut self,arg: i32) -> i32{
+        //         match self.value{
+        //             Some(v) =>v, // 有值返回值
+        //             None => { // 无值创造值
+        //                 let v = self.calculation(arg);
+        //                 self.value = Some(v);
+        //                 v
+        //             }
+        //         }
+        //     }
+        // }
 
-        // impl 后面定义 T ，结构体 Container 后面使用 T
-        impl <T>Container<T> where T: Fn(i32) -> i32{
-            fn new(calculation: T) -> Container<T>{
-                Container{
-                    calculation,
-                    value: None,
-                }
-            }
 
-            //
-            fn value(&mut self,arg: i32) -> i32{
-                match self.value{
-                    Some(v) =>v, // 有值返回值
-                    None => { // 无值创造值
-                        let v = self.calculation(arg);
-                        self.value = Some(v);
-                        v
-                    }
-                }
-            }
-        }
     }
-
 }

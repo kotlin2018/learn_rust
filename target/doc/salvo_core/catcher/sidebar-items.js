@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["status_error_bytes","Create bytes from `StatusError`."]],"struct":[["CatcherImpl","Default implementation of [`Catcher`]."]],"trait":[["Catcher","Catch http response error."]]});

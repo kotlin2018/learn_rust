@@ -1,0 +1,14 @@
+/Users/lo/rust/practice/learn_rust/target/debug/deps/tracing_core-c32ae51900d53849.rmeta: /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/lib.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/callsite.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/dispatcher.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/event.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/field.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/metadata.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/parent.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/span.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/stdlib.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/subscriber.rs
+
+/Users/lo/rust/practice/learn_rust/target/debug/deps/tracing_core-c32ae51900d53849.d: /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/lib.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/callsite.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/dispatcher.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/event.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/field.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/metadata.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/parent.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/span.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/stdlib.rs /Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/subscriber.rs
+
+/Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/lib.rs:
+/Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/callsite.rs:
+/Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/dispatcher.rs:
+/Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/event.rs:
+/Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/field.rs:
+/Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/metadata.rs:
+/Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/parent.rs:
+/Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/span.rs:
+/Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/stdlib.rs:
+/Users/lo/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/tracing-core-0.1.27/src/subscriber.rs:
