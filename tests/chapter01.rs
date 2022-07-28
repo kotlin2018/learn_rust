@@ -325,6 +325,5 @@ pub mod chapter01{
 
     #[test]
     fn test_15(){
-        let a =
     }
 }

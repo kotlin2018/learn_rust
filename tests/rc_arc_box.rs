@@ -173,4 +173,26 @@ mod smart_pointer_test{
         println!("rc_user 对象的引用计数 = {:?}",Rc::strong_count(&rc_people));
         println!("调用完毕");
     }
+
+    #[derive(Debug)]
+    struct Student{
+        pub name: Option<String>,
+        pub age: Option<i32>,
+    }
+
+    /// 函数的入参数是 对象的引用，函数内部获取该对象引用某个字段的引用
+    #[test]
+    fn test_object_field_reference(){
+        fn add(source: &Student){
+            let p = source; //Ok: 变量 p 绑定 People 这个对象的引用。
+            //let name = source.name; //Error: Cannot move, 变量 name 绑定 People 这个对象中的 name 字段，但 name 是 String 类型，是Move语义。
+            let name = source.name.as_ref(); //Ok: 变量 name 绑定 People 这个对象中 name 字段的引用。
+            println!("{:?}",name);
+        }
+        let student = Student{
+            name: Some("小明".to_string()),
+            age: None
+        };
+        add(&student);
+    }
 }
