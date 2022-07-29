@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Body","Response body type."]],"struct":[["Parts","Component parts of an HTTP `Response`"],["Response","Represents an HTTP response"]]});

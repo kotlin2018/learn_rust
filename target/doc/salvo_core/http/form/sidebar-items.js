@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["FilePart","A file that is to be inserted into a `multipart/*` or alternatively an uploaded file that was received as part of `multipart/*` parsing."],["FormData","The extracted text fields and uploaded files from a `multipart/form-data` request."]]});

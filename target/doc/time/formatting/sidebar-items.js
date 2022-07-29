@@ -1,1 +1,0 @@
-initSidebarItems({"trait":[["Formattable","A type that can be formatted."]]});

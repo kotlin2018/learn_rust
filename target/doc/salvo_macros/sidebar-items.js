@@ -1,1 +1,0 @@
-initSidebarItems({"attr":[["fn_handler","`fn_handler` is a pro macro to help create `Handler` from function easily."]]});
