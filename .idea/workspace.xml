@@ -34,8 +34,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b93b726c-e34b-4f1a-a70b-03d0d63a620f" name="Default Changelist" comment="Default Changelist">
-      <change afterPath="$PROJECT_DIR$/tests/chapter_collection.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/chapter03.rs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/chapter03.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/chapter_collection.rs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/chapter_collection.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/cron_test.rs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/cron_test.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,14 +116,14 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Cargo.Test test::test_vec_iter_mut">
+  <component name="RunManager" selected="Cargo.Test test::test_46">
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test smart_pointer_test::test_Rc" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package learn_rust --test rc_arc_box smart_pointer_test::test_Rc -- --exact" />
+    <configuration name="Test test::test_45" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package learn_rust --bin learn_rust test::test_45 -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
       <option name="requiredFeatures" value="true" />
@@ -134,8 +139,8 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test smart_pointer_test::test_object_field_reference" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package learn_rust --test rc_arc_box smart_pointer_test::test_object_field_reference -- --exact" />
+    <configuration name="Test test::test_46" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package learn_rust --bin learn_rust test::test_46 -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
       <option name="requiredFeatures" value="true" />
@@ -151,8 +156,8 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test test::test_Rc" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package learn_rust --test chapter03 test::test_Rc -- --exact" />
+    <configuration name="Test test::test_add_struct (1)" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package learn_rust --bin learn_rust test::test_add_struct -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
       <option name="requiredFeatures" value="true" />
@@ -168,8 +173,8 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test test::test_aa" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package learn_rust --test chapter03 test::test_aa -- --exact" />
+    <configuration name="Test test::test_add_struct" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package learn_rust --test chapter03 test::test_add_struct -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
       <option name="requiredFeatures" value="true" />
@@ -185,8 +190,8 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test test::test_vec_iter_mut" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package learn_rust --test chapter_collection test::test_vec_iter_mut -- --exact" />
+    <configuration name="Test test::test_vec_move" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package learn_rust --test chapter03 test::test_vec_move -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
       <option name="requiredFeatures" value="true" />
@@ -204,11 +209,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cargo.Test test::test_vec_iter_mut" />
-        <item itemvalue="Cargo.Test smart_pointer_test::test_object_field_reference" />
-        <item itemvalue="Cargo.Test test::test_aa" />
-        <item itemvalue="Cargo.Test smart_pointer_test::test_Rc" />
-        <item itemvalue="Cargo.Test test::test_Rc" />
+        <item itemvalue="Cargo.Test test::test_46" />
+        <item itemvalue="Cargo.Test test::test_45" />
+        <item itemvalue="Cargo.Test test::test_add_struct (1)" />
+        <item itemvalue="Cargo.Test test::test_add_struct" />
+        <item itemvalue="Cargo.Test test::test_vec_move" />
       </list>
     </recent_temporary>
   </component>
@@ -306,7 +311,15 @@
       <workItem from="1658759526232" duration="376000" />
       <workItem from="1658978643827" duration="955000" />
       <workItem from="1658986342635" duration="300000" />
-      <workItem from="1658988924911" duration="757000" />
+      <workItem from="1658988924911" duration="1271000" />
+      <workItem from="1659002731997" duration="41000" />
+      <workItem from="1659056736614" duration="1151000" />
+      <workItem from="1659068786172" duration="1829000" />
+      <workItem from="1659076666337" duration="872000" />
+      <workItem from="1659077752281" duration="502000" />
+      <workItem from="1659078306033" duration="312000" />
+      <workItem from="1659106345329" duration="87000" />
+      <workItem from="1659106450771" duration="1345000" />
     </task>
     <servers />
   </component>

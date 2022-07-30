@@ -2,7 +2,7 @@
 #[cfg(test)]
 mod test{
 
-    #[derive(Debug)]
+    #[derive(Debug,Default)]
     struct Student{
         pub name: Option<String>,
         pub age: Option<i32>,
@@ -34,4 +34,15 @@ mod test{
         println!("student_vec = {:?}",student_vec);
     }
 
+    /// 只有对象的实例是可变的，才能定义它的引用是可变的。(只能获取可变对象的可变引用，不能获取不可变对象的可变引用)
+    #[test]
+    fn test_borrow_and_borrow_mut(){
+        /// 只有对象的实例是可变的，才能定义它的引用是可变的。(只能获取可变对象的可变引用，不能获取不可变对象的可变引用)
+        //let student = Student::default();
+        //let student_borrow_mut = &mut student;// Error: 只有 Student 的实例 student 是 mut(可变的)，才能定义它的引用是可变的
+
+        let mut student = Student::default();
+        let student_mut = &mut student;
+
+    }
 }

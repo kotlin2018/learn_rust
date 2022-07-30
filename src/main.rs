@@ -52,6 +52,34 @@ async fn nice(){
     sleep(time::Duration::from_secs(1))
 }
 
+#[derive(Debug,Default)]
+pub struct Man {
+    pub name: String,
+    pub age: i32,
+    pub gender: bool,
+}
+
+#[derive(Debug,Default)]
+pub struct Woman {
+    pub name: String,
+    pub age: i32,
+    pub gender: bool,
+}
+
+#[derive(Debug,Default)]
+pub struct Family {
+    pub man: Man,
+    pub woman: Woman,
+}
+
+fn add_struct(man: Man,woman: Woman) -> Family{
+    println!("aaaaaaaaa");
+    Family{
+        man,
+        woman,
+    }
+}
+
 fn main() {
     // let rt = Builder::new_current_thread().enable_all().build().unwrap();
     // rt.block_on(
@@ -306,11 +334,11 @@ pub mod test{
     //     }
     // }
 
-    #[test]
-    fn test_11(){
-        let v = List(vec![1,2,3]);
-        println!("{}",v);
-    }
+    // #[test]
+    // fn test_11(){
+    //     let v = List(vec![1,2,3]);
+    //     println!("{}",v);
+    // }
 
     // #[derive(Debug)]
     // struct Any{
@@ -353,16 +381,16 @@ pub mod test{
     //     }
     // }
 
-    #[test]
-    fn test_13(){
-        for city in [
-            City{name:"Dublin",lat: 53.347778, lon: -6.259722 },
-            City { name: "Oslo", lat: 59.95, lon: 10.75 },
-            City { name: "Vancouver", lat: 49.25, lon: -123.1 },
-        ].iter(){
-            println!("{}", *city);
-        }
-    }
+    // #[test]
+    // fn test_13(){
+    //     for city in [
+    //         City{name:"Dublin",lat: 53.347778, lon: -6.259722 },
+    //         City { name: "Oslo", lat: 59.95, lon: 10.75 },
+    //         City { name: "Vancouver", lat: 49.25, lon: -123.1 },
+    //     ].iter(){
+    //         println!("{}", *city);
+    //     }
+    // }
 
     // 字面量和运算符
     // #[test]
@@ -495,7 +523,7 @@ pub mod test{
         let s2 = &String::from("banana");
     }
 
-    #[test]
+    // #[test]
     // fn test_21(){
     //     let mut n = 0;
     //     let mut count =  move||{
@@ -569,12 +597,12 @@ pub mod test{
     //     println!("{}",i);
     //     move |n| n+i // 这是一个闭包，它的类型是 FnMut(i32)->i32
     // }
-    #[test]
-    fn test_27(){
-        let mut f = counter(2); //  i = 2
-        // 这里 f 的类型是 FnMut(i32)->i32，因此 f(1) 执行的代码是这个闭包 |n| n+i
-        assert_eq!(3,f(1));  // counter()内的闭包被调用 闭包的 入参 n = 1 ,则 n+i = 1+2
-    }
+    // #[test]
+    // fn test_27(){
+    //     let mut f = counter(2); //  i = 2
+    //     // 这里 f 的类型是 FnMut(i32)->i32，因此 f(1) 执行的代码是这个闭包 |n| n+i
+    //     assert_eq!(3,f(1));  // counter()内的闭包被调用 闭包的 入参 n = 1 ,则 n+i = 1+2
+    // }
 
     #[test]
     fn test_28(){
@@ -955,6 +983,23 @@ pub mod test{
             // println!("{:?}",token_str);
             let a = 5;
             println!("{:?}",a);
+        }
+
+        #[test]
+        fn test_add_struct(){
+            let man = Man{
+                name: "项羽".to_string(),
+                age: 25,
+                gender: true
+            };
+            let woman = Woman{
+                name: "虞姬".to_string(),
+                age: 22,
+                gender: false
+            };
+            println!("准备输出");
+            let people = add_struct(man,woman);
+            println!("{:#?}",people)
         }
     }
 }

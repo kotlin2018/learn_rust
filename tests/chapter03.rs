@@ -9,7 +9,7 @@ mod test{
     use salvo::http::headers::Te;
     use tracing_subscriber::fmt::try_init;
 
-    #[derive(Debug,Clone)]
+    #[derive(Debug,Clone,Default)]
     struct User {
         name: String,
         age: RefCell<u32>,
@@ -23,7 +23,7 @@ mod test{
         }
     }
 
-    #[derive(Debug)]
+    #[derive(Debug,Default)]
     pub struct Teacher {
         name: String,
         curriculums: Vec<String>,
@@ -426,7 +426,5 @@ mod test{
         //         }
         //     }
         // }
-
-
     }
 }
